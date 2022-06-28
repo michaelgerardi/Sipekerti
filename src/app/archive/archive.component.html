@@ -1,0 +1,15 @@
+<div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0; margin-bottom: 40px;">
+    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Materi</h1>
+</div>
+<table>
+    <tr>
+        <th style="text-align: center; width:150px">Pertemuan ke</th>
+        <th style="text-align: center; width:400px">Judul</th>
+        <th style="text-align: center; width:200px">Dokumen</th>
+    </tr>
+    <tr *ngFor="let materi of materiList">
+        <td style="text-align: center;">{{materi.id}}</td>
+        <td>{{materi.judul}}</td>
+        <td style="text-align: center;">{{materi.dokumen}}</td>
+    </tr>
+</table>

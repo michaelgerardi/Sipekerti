@@ -1,0 +1,19 @@
+<form [formGroup]="postingForm" (ngSubmit)="create()">
+    <h2 mat-dialog-title style="text-align: center;">Postingan</h2>
+    <mat-dialog-content class="mat-typography"  >
+      <mat-label>Judul</mat-label>
+      <mat-form-field appearance="legacy" style="margin-left:73px;"> 
+        <input matInput type="text" formControlName="judul">
+      </mat-form-field>
+      <br>
+      <mat-label>Pesan</mat-label>
+      <mat-form-field appearance="legacy" style="margin-left:73px;"> 
+        <textarea matInput type="text" formControlName="pesan"></textarea>
+      </mat-form-field>
+      <br>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+      <button mat-button mat-dialog-close>Batal</button>
+      <button mat-button [mat-dialog-close] [disabled]="!postingForm.valid" type="submit">Simpan</button>
+    </mat-dialog-actions>
+  </form>

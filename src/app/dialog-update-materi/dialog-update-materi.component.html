@@ -1,0 +1,18 @@
+<form [formGroup]="editForm" (ngSubmit)="updateMateri()">
+    <h2 mat-dialog-title style="text-align: center;">Materi Baru</h2>
+    <mat-dialog-content class="mat-typography" style="width: 370px;">
+      <mat-label>Judul</mat-label>
+      <mat-form-field appearance="legacy" style="margin-left: 91px;">
+        <textarea matInput type="text" formControlName="judul"></textarea>
+      </mat-form-field>
+      <br>
+      <mat-label>Dokumen</mat-label>
+      <mat-form-field appearance="legacy" style="margin-left: 66px;">
+        <input type="file" formControlName="dokumen">
+      </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+      <button mat-button mat-dialog-close>Batal</button>
+      <button mat-button [mat-dialog-close] [disabled]="!editForm.valid" type="submit">Simpan</button>
+    </mat-dialog-actions>
+</form>

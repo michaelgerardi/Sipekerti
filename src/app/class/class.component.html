@@ -1,0 +1,33 @@
+<div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0;">
+    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Kelas</h1>
+</div>
+<div style="margin-left: 40px">
+    <button mat-raised-button style="margin-top: 20px; background-color: #E0F2F1; font-size: small; width: fit-content;" (click)="create()">
+        <i class="fa fa-plus-circle" aria-hidden="true"></i>
+            Tambah
+    </button>
+</div>
+
+<div class="card" *ngFor="let kelas of kelasList">
+    <div class="card-head">
+        <div style="margin-top: -7px;">
+            [{{kelas.kode_kelas}}] 
+            {{kelas.nama_kelas}}
+        </div>
+    </div>
+        <div class="card-body">
+            <!-- <div>{{kelas.deskripsi}}</div> -->
+            <div>Masa pendampingan: {{kelas.tanggal_mulai}} - {{kelas.tanggal_selesai}}</div>
+            <!--<div>Deskripsi: {{kelas.deskripsi}}</div>-->
+            <button mat-stroked-button style="font-size: x-small; width: fit-content; margin-right: 10px; margin-top: 10px; background-color: #e3e1e1;" (click)="meetingId(kelas.id)">Pertemuan</button>
+            <i class="fa fa-users" aria-hidden="true" style="margin-top: 1%;"> : </i>
+            <div style="margin-left: 90%;">
+                <button mat-mini-fab style="margin-right: 8px;" (click)="delete(kelas.id)">
+                    <i class="fa fa-trash" aria-hidden="true"></i>
+                </button>
+                <button mat-mini-fab >
+                    <i class="fa fa-edit" aria-hidden="true" (click)="update(kelas)"></i>
+                </button>
+            </div>
+        </div> 
+</div>
