@@ -20,8 +20,8 @@
             <th style="text-align: center; width: 70px;">Dokumen</th>
             <th style="text-align: center;width: 80px;">Aktifitas</th>
           </tr>
-          <tr *ngFor="let materi of materiList">
-            <td style="text-align: center;">{{materi.id}}</td>
+          <tr *ngFor="let materi of materiList; let i = index">
+            <td style="text-align: center;">{{i + 1}}</td>
             <td>{{materi.judul}}</td>
             <td style="text-align: center; height: 20px;">{{materi.dokumen}}</td>
             <!-- <td style="text-align: center; height: 20px;">
@@ -58,8 +58,8 @@
             <th style="text-align: center; width: 110px;">Batas Kumpul</th>
             <th style="text-align: center;width: 80px;">Aktifitas</th>
           </tr>
-          <tr *ngFor="let tugas of tugasList">
-            <td style="text-align: center;">{{tugas.id}}</td>
+          <tr *ngFor="let tugas of tugasList; let i = index">
+            <td style="text-align: center;">{{i+1}}</td>
             <td>{{tugas.judul}}</td>
             <td style="text-align: center;">{{tugas.dokumen}}</td>
             <td style="text-align: center;">{{tugas.tanggal_selesai}}</td>

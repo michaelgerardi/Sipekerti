@@ -10,8 +10,6 @@ export class KelasService{
   
     private BASE_URL: string= 'http://localhost:8080/';
     constructor(private http: HttpClient) { }
-    
-    
 
     getAll(){
       return this.http.get(this.BASE_URL + 'kelas/',).toPromise().then(res => res as Kelas[]);
@@ -21,8 +19,8 @@ export class KelasService{
       return this.http.post(this.BASE_URL + 'kelas/',JSON.stringify(data) );
     }
 
-    delete(id: number){
-      return this.http.delete(this.BASE_URL+'kelas/'+id);
+    delete(id: any){
+      return this.http.delete(this.BASE_URL+ 'kelas/' +id);
     }
 
     update( id: number, data: any ) {

@@ -15,7 +15,6 @@ import Swal from 'sweetalert2';
 export class ClassComponent implements OnInit {
 
   kelasList: any =[];
-  pertemuanList: any=[];
 
   constructor(
     public dialog: MatDialog,
@@ -41,7 +40,7 @@ export class ClassComponent implements OnInit {
     })
   }
 
-  public delete(id: number){
+  public delete(id: any){
     Swal.fire({
       title: 'Apakah Anda yakin ingin menghapus data?',
       icon: 'warning',

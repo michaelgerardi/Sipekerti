@@ -1,0 +1,32 @@
+<h2 mat-dialog-title style="text-align: center;">SILABUS PEMBELAJARAN</h2>
+<mat-dialog-content class="mat-typography" #pdfTable>
+    <div style="font-size: 16px; line-height: 1.5;">
+        <span>Pertemuan</span><span style="margin-left:60px;">: Penelitian dan Publikasi untuk Meningkatkan Kualitas Pembelajaran</span>
+        <br>
+        <span>Kelas / Tahun</span><span style="margin-left:42px ;">: 1 / 2022</span>
+        <br>
+        <span>Bobot</span><span style="margin-left:97px;">: 3</span>
+    </div>
+  
+    <table style="margin-top: 20px;">
+        <tr style="text-align: center;">
+            <th style="width: 5%;">Materi Pembelajaran</th>
+            <th style="width: 5%">Sub Pencapaian</th>
+            <th style="width: 8%">Indikator</th>
+            <th style="width: 8%">Metode Penilaian</th>
+            <th style="width: 8%">Metode Pembelajaran</th>
+        </tr>
+    
+        <tr style="text-align: justify;">
+            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
+            <td>Connect user input to screen reactions by using ripples to both indicate the point of touch</td>
+            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
+            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
+            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
+        </tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="downloadAsPDF()">Export to PDF</button>
+</mat-dialog-actions>

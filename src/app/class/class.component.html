@@ -16,11 +16,11 @@
         </div>
     </div>
         <div class="card-body">
-            <!-- <div>{{kelas.deskripsi}}</div> -->
-            <div>Masa pendampingan: {{kelas.tanggal_mulai}} - {{kelas.tanggal_selesai}}</div>
-            <!--<div>Deskripsi: {{kelas.deskripsi}}</div>-->
-            <button mat-stroked-button style="font-size: x-small; width: fit-content; margin-right: 10px; margin-top: 10px; background-color: #e3e1e1;" (click)="meetingId(kelas.id)">Pertemuan</button>
-            <i class="fa fa-users" aria-hidden="true" style="margin-top: 1%;"> : </i>
+            <div style="font-size: medium;">{{kelas.deskripsi}}</div>
+            <br>
+            <div>Masa pendampingan: {{kelas.tanggal_mulai.split("-").reverse().join("-")}} - {{kelas.tanggal_selesai.split("-").reverse().join("-")}}</div>
+            <button mat-stroked-button style="font-size: x-small;margin-right: 10px;background-color: #e3e1e1; margin-top: 15px;" (click)="meetingId(kelas.id)">Pertemuan</button>
+            <button mat-stroked-button style="background-color: #e3e1e1; margin-top: 15px;" (click)="meetingId(kelas.id)"><i class="fa fa-users" aria-hidden="true"></i></button>
             <div style="margin-left: 90%;">
                 <button mat-mini-fab style="margin-right: 8px;" (click)="delete(kelas.id)">
                     <i class="fa fa-trash" aria-hidden="true"></i>

@@ -63,9 +63,9 @@
             <input matInput type="text" formControlName="bobot">
         </mat-form-field>
         <br>
-        <!--<mat-label>Upload Image</mat-label>
-        <input (change)="this.onFilechange($event)" class="form-control" type="file" id="formFile" formControlName="upload_image">
-       <button (click)="this.upload()" type="button" class="btn btn-primary mt-3">Upload</button>
+        <!--<mat-label>Gambar</mat-label>
+        <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" (change)="onFileSelected($event)">
+        <button type="button" (click)="onUpload()"></button>
         <br>-->
     </mat-dialog-content>
     <mat-dialog-actions align="center">

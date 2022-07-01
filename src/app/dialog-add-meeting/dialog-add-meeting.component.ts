@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PertemuanService } from '../_services/pertemuan.service';
 import Swal from 'sweetalert2';
+import { HttpClient, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-dialog-add-meeting',
@@ -12,7 +13,8 @@ export class DialogAddMeetingComponent implements OnInit {
 
   constructor(
     private fb : FormBuilder,
-    private pertemuanService : PertemuanService
+    private pertemuanService : PertemuanService,
+    private http: HttpClient
   ) { }
 
   ngOnInit(): void {
@@ -36,7 +38,6 @@ export class DialogAddMeetingComponent implements OnInit {
   })
 
   createPertemuan(){
-    
     this.pertemuanService.insert(this.pertemuanForm.value).subscribe(val=>{
       Swal.fire({
         icon: 'success',
@@ -47,20 +48,27 @@ export class DialogAddMeetingComponent implements OnInit {
     })
   }
 
-  // file: File = null;
+//  selectedFile: File = null;
 
-//  onFilechange(event: any) {
-//    console.log(event.target.files[0])
-//    this.file = event.target.files[0]
+//  onFileSelected(event: any) {
+//    //console.log(event)
+//    this.selectedFile = <File>event.target.files[0]
 //  }
-  
-//  upload() {
-//    if (this.file) {
-//      this.pertemuanService.uploadfile(this.file).subscribe(resp => {
-//        alert("Uploaded")
-//      })
-//    } else {
-//      alert("Please select a file first")
-//    }
+
+//  onUpload(){
+//    const fd = new FormData();
+//    fd.append('image', this.selectedFile, this.selectedFile.name);
+//    this.http.post( , fd, {
+//        reportProgress: true,
+//        observe: 'events'
+//    }).subscribe(event => {
+//        if (event.type === HttpEventType.UploadProgress){
+//            console.log('Upload Progress: '+ Math.round(event.loaded / event.total*100) + '%');
+            
+//        } else if(event.type === HttpEventType.Response){
+//            console.log(event);
+//        }
+        
+//    })
 //  }
 }

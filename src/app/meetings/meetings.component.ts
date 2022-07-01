@@ -5,6 +5,7 @@ import Swal from 'sweetalert2';
 import { DialogAddMeetingComponent } from '../dialog-add-meeting/dialog-add-meeting.component';
 import { PertemuanService } from '../_services/pertemuan.service';
 import { DialogUpdateMeetingComponent } from '../dialog-update-meeting/dialog-update-meeting.component';
+import { PrintSilabusComponent } from '../print-silabus/print-silabus.component';
 
 @Component({
   selector: 'app-meetings',
@@ -82,6 +83,13 @@ export class MeetingsComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogUpdateMeetingComponent, {data: data});
     dialogRef.afterClosed().subscribe(()=>{
       this.readMeeting(this.y);
+    })
+  }
+
+  public print(data: any){
+    const dialogRef = this.dialog.open(PrintSilabusComponent, {data: data});
+    dialogRef.afterClosed().subscribe(()=>{
+        this.readMeeting(this.y);
     })
   }
 }

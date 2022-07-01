@@ -45,14 +45,14 @@ export class DialogProfileComponent implements OnInit {
   }
 
   save(){
-    this.userService.update(this.datacross.id,this.profilForm.value).subscribe( ( result ) => {
-      Swal.fire({
-        icon: 'success',
-        title: 'Data tersimpan!',
-        showConfirmButton: false,
-        timer: 2000
-      })
-    })
+    //this.userService.update(this.datacross.id,this.profilForm.value).subscribe( ( result ) => {
+    //  Swal.fire({
+    //    icon: 'success',
+    //    title: 'Data tersimpan!',
+    //    showConfirmButton: false,
+    //    timer: 2000
+    //  })
+    //})
   }
 
 }
