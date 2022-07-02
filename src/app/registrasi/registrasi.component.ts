@@ -29,7 +29,7 @@ export class RegistrasiComponent implements OnInit {
     }
   
     postdata(angForm:any){
-      this.dataService.userregistration(
+      this.dataService.register(
         angForm.value.email,
         angForm.value.password,
       )
