@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
 
 @Component({
@@ -10,6 +11,7 @@ export class DashboardComponent implements OnInit {
 
   title = 'barcharts';
   constructor(
+    private router: Router
   ) { }
 
   ngOnInit() {
@@ -43,5 +45,9 @@ export class DashboardComponent implements OnInit {
         }]
       },
     });
+  }
+
+  public listDosen(){
+    this.router.navigate(['/daftar-dosen'])
   }
 }

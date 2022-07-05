@@ -6,6 +6,7 @@ import { ArchiveComponent } from './archive/archive.component';
 import { ClassComponent } from './class/class.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { DetailMeetingComponent } from './detail-meeting/detail-meeting.component';
+import { ListDosenComponent } from './list-dosen/list-dosen.component';
 import { LoginComponent } from './login/login.component';
 import { MeetingsComponent } from './meetings/meetings.component';
 import { PrintSilabusComponent } from './print-silabus/print-silabus.component';
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'detail-meeting/:id', component: DetailMeetingComponent},
   {path: 'login', component: LoginComponent},
   {path: 'download-silabus', component: PrintSilabusComponent},
+  {path: 'daftar-dosen', component: ListDosenComponent},
 
   {path: 'tasks-teacher', component: TasksPengajarComponent},
   {path: 'files-teacher', component: ArchivePengajarComponent},

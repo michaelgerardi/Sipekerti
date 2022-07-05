@@ -33,6 +33,10 @@ export class UserService{
     public peserta(){
         return this.http.get(this.BASE_URL + 'peserta').toPromise().then(res => res as User[])
     }
+
+    public pengajar(){
+        return this.http.get(this.BASE_URL + 'pengajar').toPromise().then(res => res as User[])
+    }
     //public register(email: string, password: string): Observable<any> {
     //    return this.http.post(this.BASE_URL + '/register', {
     //      email,

@@ -1,0 +1,45 @@
+<div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0; margin-bottom: 40px;">
+    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Dosen</h1>
+</div>
+<table>
+    
+        <div>
+            <tr>
+                <th style="text-align: center; width:450px">Pertemuan</th>
+                <th style="text-align: center; width:400px">Judul</th>
+                <th style="text-align: center; width:200px">Dokumen</th>
+            </tr>
+        </div>
+
+        <div *ngFor="let pengajar of pengajarList">
+            <tr >
+                <td style="column-width: 455px;">{{pengajar.nam}}</td>
+                <td style="column-width: 400px;" >{{pengajar.judul}}</td>
+                <td style="text-align: center; column-width: 200px;">{{pengajar.dokumen}}</td>
+            </tr>
+        </div>
+
+</table>
+<table>
+    <div>
+        <div>
+            <tr>
+                <th style="text-align: center; width:450px">Pertemuan</th>
+                <th style="text-align: center; width:400px">Judul</th>
+                <th style="text-align: center; width:200px">Dokumen</th>
+            </tr>
+        </div>
+        
+    </div>
+    
+    <div *ngFor="let pertemuan of pertemuanList">
+        <div *ngFor="let materi of materiList">
+            <tr >
+                <td style="column-width: 455px;">{{pertemuan.nama_pertemuan}}</td>
+                <td style="column-width: 400px;" >{{materi.judul}}</td>
+                <td style="text-align: center; column-width: 200px;">{{materi.dokumen}}</td>
+            </tr>
+        </div>
+        
+    </div>
+</table>
