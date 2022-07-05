@@ -46,7 +46,6 @@ import { DialogUpdateMateriComponent } from './dialog-update-materi/dialog-updat
 import { DialogUpdateMeetingComponent } from './dialog-update-meeting/dialog-update-meeting.component';
 import { DialogProfileComponent } from './dialog-profile/dialog-profile.component';
 import { DialogUpdateTugasComponent } from './dialog-update-tugas/dialog-update-tugas.component';
-import { RegistrasiComponent } from './registrasi/registrasi.component';
 import { PrintSilabusComponent } from './print-silabus/print-silabus.component';
 
 @NgModule({
@@ -77,7 +76,6 @@ import { PrintSilabusComponent } from './print-silabus/print-silabus.component';
     DialogUpdateMeetingComponent,
     DialogProfileComponent,
     DialogUpdateTugasComponent,
-    RegistrasiComponent,
     PrintSilabusComponent
   ],
   imports: [

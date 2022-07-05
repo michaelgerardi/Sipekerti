@@ -28,39 +28,43 @@
         <div class="form-content">
           <div class="login-form">
             <div class="title">Login</div>
-          <form action="#">
+          <form [formGroup]="userForm" (ngSubmit)="login()">
             <div class="input-boxes">
-              <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Masukkan email @staff.ukdw.ac.id" required>
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Masukkan password" required>
-              </div>
-              <div class="text"><a href="#">Lupa password?</a></div>
-              <div class="button input-box">
-                <input type="submit" value="Sumbit">
-              </div>
-              <div class="text sign-up-text">Belum punya akun? <label for="flip">Silakan registrasi!</label></div>
+                <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Masukkan username" required formControlName="username">
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-envelope"></i>
+                    <input type="text" placeholder="Masukkan email" required formControlName="email">
+                </div>
+                <div class="input-box">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" placeholder="Masukkan password" required formControlName="password">
+                </div>
+                <!--<div class="text"><a href="#">Lupa password?</a></div>-->
+                <div class="button input-box">
+                    <input type="submit" value="Sumbit">
+                </div>
+                <div class="text sign-up-text">Belum punya akun? <label for="flip">Silakan registrasi!</label></div>
             </div>
         </form>
       </div>
         <div class="signup-form">
           <div class="title">Registrasi</div>
-        <form action="#">
+        <form [formGroup]="userForm" (ngSubmit)="registrasi()">
             <div class="input-boxes">
               <div class="input-box">
                 <i class="fas fa-user"></i>
-                <input type="text" placeholder="Nama Lengkap" required>
+                <input type="text" placeholder="Username" required formControlName="username">
               </div>
               <div class="input-box">
                 <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Email @staff.ukdw.ac.id" required>
+                <input type="text" placeholder="Masukkan email" required formControlName="email">
               </div>
               <div class="input-box">
                 <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Masukkan password" required>
+                <input type="password" placeholder="Masukkan password" required formControlName="password">
               </div>
               <div class="button input-box">
                 <input type="submit" value="Sumbit">

@@ -15,7 +15,7 @@ export class PertemuanService{
     }
 
     getAll(){
-        return this.http.get(this.BASE_URL + 'pertemuan/').toPromise().then(res => res as Pertemuan[]);
+        return this.http.get(this.BASE_URL + 'pertemuan').toPromise().then(res => res as Pertemuan[]);
     }
 
     insert(data: any){

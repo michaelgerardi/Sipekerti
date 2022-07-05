@@ -2,14 +2,26 @@
     <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Materi</h1>
 </div>
 <table>
-    <tr>
-        <th style="text-align: center; width:150px">Pertemuan ke</th>
-        <th style="text-align: center; width:400px">Judul</th>
-        <th style="text-align: center; width:200px">Dokumen</th>
-    </tr>
-    <tr *ngFor="let materi of materiList">
-        <td style="text-align: center;">{{materi.id}}</td>
-        <td>{{materi.judul}}</td>
-        <td style="text-align: center;">{{materi.dokumen}}</td>
-    </tr>
+    <div>
+        <div>
+            <tr>
+                <th style="text-align: center; width:450px">Pertemuan</th>
+                <th style="text-align: center; width:400px">Judul</th>
+                <th style="text-align: center; width:200px">Dokumen</th>
+            </tr>
+        </div>
+        
+    </div>
+    
+    <div *ngFor="let pertemuan of pertemuanList">
+        <div *ngFor="let materi of materiList">
+            <tr >
+                <td style="column-width: 455px;">{{pertemuan.nama_pertemuan}}</td>
+                <td style="column-width: 400px;" >{{materi.judul}}</td>
+                <td style="text-align: center; column-width: 200px;">{{materi.dokumen}}</td>
+            </tr>
+        </div>
+        
+    </div>
+    
 </table>

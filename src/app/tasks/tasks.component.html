@@ -2,23 +2,26 @@
     <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Nilai</h1>
   </div>
   
-  <div *ngFor="let tugas of nilaiList; let i = index">
-    <h3 style="margin-top: 20px; font-weight: 500; margin-left: 50px;">{{i + 1}}</h3>
+  <div *ngFor="let pertemuan of pertemuanList">
+    <h3 style="margin-top: 20px; font-weight: 500; margin-left: 50px;">{{pertemuan.nama_pertemuan}}</h3>
     <table>
       <tr style="text-align: center;">
         <th style="width: 8%">No</th>
         <th style="width: 50%">Nama Peserta</th>
         <th>Nilai</th>
+        <th>Status</th>
       </tr>
     
-      <tr>
+      <tr *ngFor="let peserta of pesertaList; let i = index">
         <td style="text-align: center;">{{i+1}}</td>
-        <td>Vinanda Kristianti</td>
-        <td style="text-align: center;">{{tugas.nilai}}</td>
+        <td>{{peserta.username}}</td>
+        <td style="text-align: center;"></td>
+        <td></td>
       </tr>
       <tr>
         <td colspan="2">Rata - rata</td>
         <td style="text-align: center;">{{rerata}}</td>
+        <td></td>
       </tr>
     </table>
   </div>

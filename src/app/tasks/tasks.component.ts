@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PertemuanService } from '../_services/pertemuan.service';
 import { TugasService } from '../_services/tugas.service';
+import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-tasks',
@@ -9,16 +11,36 @@ import { TugasService } from '../_services/tugas.service';
 export class TasksComponent implements OnInit{
     
     constructor(
-        private tugasService: TugasService
+        private tugasService: TugasService,
+        private userService: UserService,
+        private pertemuanService: PertemuanService
       ) {}
     
+      pesertaList: any = [];
+      pertemuanList: any = [];
       nilaiList: any =[];
       rerata: any;
     
       ngOnInit(): void {
-        this.readNilai()
+        this.readNilai(),
+        this.peserta(),
+        this.pertemuan()
       }
     
+      public peserta(){
+        this.userService.peserta().then(val => {
+            this.pesertaList = val
+            console.log(val);
+        })
+      }
+
+      public pertemuan(){
+        this.pertemuanService.getAll().then(val =>{
+            this.pertemuanList = val
+            console.log(val);
+            
+        })
+      }
       public readNilai(){
         this.tugasService.getAll().then(val =>{
           var total = 0

@@ -9,13 +9,12 @@ import { DetailMeetingComponent } from './detail-meeting/detail-meeting.componen
 import { LoginComponent } from './login/login.component';
 import { MeetingsComponent } from './meetings/meetings.component';
 import { PrintSilabusComponent } from './print-silabus/print-silabus.component';
-import { RegistrasiComponent } from './registrasi/registrasi.component';
 import { TasksPengajarComponent } from './tasks-pengajar/tasks-pengajar.component';
 import { TasksPesertaComponent } from './tasks-peserta/tasks-peserta.component';
 import { TasksComponent } from './tasks/tasks.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'dashboard', pathMatch:'full'},
+  {path: '', redirectTo: 'login', pathMatch:'full'},
   {path: 'dashboard', component: DashboardComponent},
   {path: 'class', component: ClassComponent},
   {path: 'tasks', component: TasksComponent},
@@ -23,7 +22,6 @@ const routes: Routes = [
   {path: 'list-meeting/:id', component: MeetingsComponent},
   {path: 'detail-meeting/:id', component: DetailMeetingComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'registrasi', component: RegistrasiComponent},
   {path: 'download-silabus', component: PrintSilabusComponent},
 
   {path: 'tasks-teacher', component: TasksPengajarComponent},

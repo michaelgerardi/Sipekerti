@@ -2,6 +2,7 @@ import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
+import { User } from "../_models/user.model";
 
 @Injectable({
     providedIn: 'root'
@@ -19,26 +20,39 @@ export class UserService{
     //        return User;
     //    }));
     //}
-    public register(email: string, password: string): Observable<any> {
-        return this.http.post(this.BASE_URL + '/register', {
-          email,
-          password
-        });
-      }
 
-    public userlogin(email:any,password:any){
-        return this.http.post<any>(this.BASE_URL + '/login',
-        {email,password}
-        ).pipe(map(User=>{
-            this.setToken(User.email);
-            //console.log(User.email);
+    public login(data: any){
+        //console.log(data);
+        return this.http.post(this.BASE_URL + 'login', data)
+    }
+
+    public registrasi(data: any){
+        return this.http.post(this.BASE_URL + 'register', data)
+    }
+
+    public peserta(){
+        return this.http.get(this.BASE_URL + 'peserta').toPromise().then(res => res as User[])
+    }
+    //public register(email: string, password: string): Observable<any> {
+    //    return this.http.post(this.BASE_URL + '/register', {
+    //      email,
+    //      password
+    //    });
+    //  }
+
+    //public userlogin(email:any,password:any){
+    //    return this.http.post<any>(this.BASE_URL + '/login',
+    //    {email,password}
+    //    ).pipe(map(User=>{
+    //        this.setToken(User.email);
+    //        //console.log(User.email);
             
-            // this.getLoggedInName.email(true);
-            return User;
-        }));
-    }
+    //        // this.getLoggedInName.email(true);
+    //        return User;
+    //    }));
+    //}
 
-    setToken(token:string){
-        localStorage.setItem('token', token);
-    }
+    //setToken(token:string){
+    //    localStorage.setItem('token', token);
+    //}
 }
