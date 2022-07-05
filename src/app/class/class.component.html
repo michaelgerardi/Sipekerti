@@ -20,7 +20,7 @@
             <br>
             <div>Masa pendampingan: {{kelas.tanggal_mulai.split("-").reverse().join("-")}} - {{kelas.tanggal_selesai.split("-").reverse().join("-")}}</div>
             <button mat-stroked-button style="font-size: x-small;margin-right: 10px;background-color: #e3e1e1; margin-top: 15px;" (click)="meetingId(kelas.id)">Pertemuan</button>
-            <button mat-stroked-button style="background-color: #e3e1e1; margin-top: 15px;" (click)="meetingId(kelas.id)"><i class="fa fa-users" aria-hidden="true"></i></button>
+            <button mat-stroked-button style="background-color: #e3e1e1; margin-top: 15px;" (click)="anggota()"><i class="fa fa-users" aria-hidden="true"></i></button>
             <div style="margin-left: 90%;">
                 <button mat-mini-fab style="margin-right: 8px;" (click)="delete(kelas.id)">
                     <i class="fa fa-trash" aria-hidden="true"></i>

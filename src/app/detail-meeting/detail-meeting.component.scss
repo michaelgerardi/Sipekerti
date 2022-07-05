@@ -1,3 +1,9 @@
+.hr {
+    border:none;
+    border-top:1px dashed #BDBDBD;
+    color:#fff;
+    background-color:#fff;
+  }
 .container{
     background: #f9fafb;
     display: flex;
@@ -24,6 +30,7 @@
     background-color: #E0F2F1;; 
     font-size: small;
     margin-right: 10px;
+    margin-bottom: 20px;
 }
 .btn-list{
     width: 200px;
@@ -77,7 +84,7 @@
 
     .body {
         padding: 1rem 1.5rem;
-        background: #f9fafb;
+        background: #f7f7f7;
         height: 100%;
     }
 }

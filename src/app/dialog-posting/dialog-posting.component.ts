@@ -22,7 +22,6 @@ export class DialogPostingComponent implements OnInit {
 
   postingForm = this.fb.group({
     id: [''],
-    judul: ['', Validators.required],
     pesan: ['', Validators.required],
     id_pertemuan: ['']
   })

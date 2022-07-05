@@ -10,7 +10,6 @@ import Swal from 'sweetalert2';
   styleUrls: ['./dialog-update-class.component.scss']
 })
 export class DialogUpdateClassComponent implements OnInit {
-  kelasList: any = [];
 
   constructor(
     private fb: FormBuilder,

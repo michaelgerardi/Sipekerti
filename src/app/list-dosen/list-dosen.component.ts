@@ -12,12 +12,24 @@ export class ListDosenComponent implements OnInit {
     private userService: UserService
   ) { }
 
-  pengajarList: any =[]
+  pengajarList: any =[];
+  pesertaList: any = [];
 
   ngOnInit(): void {
+    this.pengajar(),
+    this.peserta()
   }
 
   public pengajar(){
+    this.userService.pengajar().then(val => {
+        this.pengajarList = val
+    })
+  }
 
+  public peserta(){
+    this.userService.peserta().then(val => {
+        this.pesertaList = val
+        console.log(val);
+    })
   }
 }

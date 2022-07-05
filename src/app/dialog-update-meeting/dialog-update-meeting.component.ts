@@ -31,7 +31,7 @@ export class DialogUpdateMeetingComponent implements OnInit {
         metode_pembelajaran:['', Validators.required],
         pustaka:['', Validators.required],
         bobot:['', Validators.required],
-        upload_image:['', Validators.required],
+        //upload_image:['', Validators.required]
     })
 
   ngOnInit(): void {
@@ -52,7 +52,7 @@ export class DialogUpdateMeetingComponent implements OnInit {
     metode_pembelajaran:[this.datacross.metode_pembelajaran, Validators.required],
     pustaka:[this.datacross.pustaka, Validators.required],
     bobot:[this.datacross.bobot, Validators.required],
-    upload_image:[this.datacross.upload_image, Validators.required]
+    //upload_image:[this.datacross.upload_image, Validators.required]
     })
   }
 

@@ -48,13 +48,6 @@ export class DetailMeetingComponent implements OnInit {
     this.readTugas(this.y)
   }
 
-//  public create(){
-//    const dialogRef = this.dialog.open(DialogPostingComponent);
-//    dialogRef.afterClosed().subscribe(()=>{
-//      this.readPosting();
-//    })
-//  }
-
   public readPosting(id: number){
     this.postingService.getById(id).then(val =>{
       this.postingList=val
@@ -84,6 +77,13 @@ export class DetailMeetingComponent implements OnInit {
     const dialogRef = this.dialog.open(DialogAddTaskComponent);
     dialogRef.afterClosed().subscribe(()=>{
       this.readTugas(this.y);
+    })
+  }
+
+  public addPosting(){
+    const dialogRef = this.dialog.open(DialogPostingComponent);
+    dialogRef.afterClosed().subscribe(()=>{
+        this.readPosting(this.y);
     })
   }
 

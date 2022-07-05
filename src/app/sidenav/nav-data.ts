@@ -12,7 +12,7 @@ export const navbarData = [
     {
         routeLink: 'tasks',
         icon: 'fal fa-calendar-check',
-        label: 'Daftar Tugas'
+        label: 'Daftar Nilai'
     },
     {
         routeLink: 'files',

@@ -79,4 +79,8 @@ export class ClassComponent implements OnInit {
     // })
     this.router.navigate(['/list-meeting',id])
     }
+
+    public anggota(){
+        this.router.navigate(['/daftar-dosen'])
+    }
 }

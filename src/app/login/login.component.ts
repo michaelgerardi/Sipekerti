@@ -36,16 +36,15 @@ export class LoginComponent implements OnInit {
         showConfirmButton: false,
         timer: 1000
       })
-      // Swal.fire({
-      //       icon: 'error',
-      //       title: 'Coba Lagi!',
-      //       showConfirmButton: false,
-      //       timer: 2000
-      // });
+       Swal.fire({
+            icon: 'error',
+            title: 'Login Gagal! ',
+            showConfirmButton: false,
+            timer: 2000
+       });
       console.log(val);
-      this.router.navigate(['/dashboard'])
     })
-    
+    this.router.navigate(['/dashboard']);
   }
 
   registrasi(){

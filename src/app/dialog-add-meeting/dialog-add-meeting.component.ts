@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PertemuanService } from '../_services/pertemuan.service';
 import Swal from 'sweetalert2';
-import { HttpClient, HttpEventType } from '@angular/common/http';
 
 @Component({
   selector: 'app-dialog-add-meeting',
@@ -13,8 +12,7 @@ export class DialogAddMeetingComponent implements OnInit {
 
   constructor(
     private fb : FormBuilder,
-    private pertemuanService : PertemuanService,
-    private http: HttpClient
+    private pertemuanService : PertemuanService
   ) { }
 
   ngOnInit(): void {
@@ -34,7 +32,7 @@ export class DialogAddMeetingComponent implements OnInit {
     metode_pembelajaran:['', Validators.required],
     pustaka:['', Validators.required],
     bobot:['', Validators.required],
-    upload_image:['', Validators.required],
+    //upload_image:['', Validators.required],
   })
 
   createPertemuan(){

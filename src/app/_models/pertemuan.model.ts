@@ -12,5 +12,5 @@ export class Pertemuan{
     metode_pembelajaran! : string;
     pustaka! : string;
     bobot! : number;
-    upload_image! : string;
+    //upload_image! : string;
 }
