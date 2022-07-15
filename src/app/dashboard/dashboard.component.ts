@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Chart } from 'chart.js';
+import { KelasService } from '../_services/kelas.service';
+import { PertemuanService } from '../_services/pertemuan.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,13 +12,18 @@ import { Chart } from 'chart.js';
 export class DashboardComponent implements OnInit {
 
   title = 'barcharts';
+  kelasList: any =[];
+  pertemuanList: any =[];
   constructor(
-    private router: Router
+    private router: Router,
+    public kelasService: KelasService,
+    public pertemuanService: PertemuanService,
   ) { }
 
   ngOnInit() {
     // const ctx = document.getElementById('myChart');
-    
+    this.readClass();
+    this.readMeeting();
     const myChart = new Chart("myChart",
     {
       type: 'bar',
@@ -49,5 +56,19 @@ export class DashboardComponent implements OnInit {
 
   public listDosen(){
     this.router.navigate(['/daftar-dosen'])
+  }
+
+  public readClass(){
+    this.kelasService.getAll().then(val =>{
+      this.kelasList=val
+      console.log(val);
+    })
+  }
+
+  public readMeeting(){
+    this.pertemuanService.getAll().then(val =>{
+      this.pertemuanList = val
+       console.log(val);
+     })
   }
 }

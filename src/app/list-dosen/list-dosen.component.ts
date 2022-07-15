@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogAddPengajarComponent } from '../dialog-add-pengajar/dialog-add-pengajar.component';
 import { UserService } from '../_services/user.service';
 
 @Component({
@@ -9,7 +11,8 @@ import { UserService } from '../_services/user.service';
 export class ListDosenComponent implements OnInit {
 
   constructor(
-    private userService: UserService
+    private userService: UserService,
+    private dialog: MatDialog
   ) { }
 
   pengajarList: any =[];
@@ -30,6 +33,13 @@ export class ListDosenComponent implements OnInit {
     this.userService.peserta().then(val => {
         this.pesertaList = val
         console.log(val);
+    })
+  }
+
+  public create(){
+    const dialogRef = this.dialog.open(DialogAddPengajarComponent);
+    dialogRef.afterClosed().subscribe(()=>{
+      this.pengajar()
     })
   }
 }

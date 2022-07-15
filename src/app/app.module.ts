@@ -17,6 +17,7 @@ import {MatTableModule} from '@angular/material/table';
 import { MatFileUploadModule } from 'angular-material-fileupload';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatExpansionModule} from '@angular/material/expansion';
+import {MatSelectModule} from '@angular/material/select';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -48,6 +49,10 @@ import { DialogProfileComponent } from './dialog-profile/dialog-profile.componen
 import { DialogUpdateTugasComponent } from './dialog-update-tugas/dialog-update-tugas.component';
 import { PrintSilabusComponent } from './print-silabus/print-silabus.component';
 import { ListDosenComponent } from './list-dosen/list-dosen.component';
+import { DialogAddPengajarComponent } from './dialog-add-pengajar/dialog-add-pengajar.component';
+import { AnggotaKelasComponent } from './anggota-kelas/anggota-kelas.component';
+import { DialogUpdatePostingComponent } from './dialog-update-posting/dialog-update-posting.component';
+import { NilaiComponent } from './nilai/nilai.component';
 
 @NgModule({
   declarations: [
@@ -78,7 +83,11 @@ import { ListDosenComponent } from './list-dosen/list-dosen.component';
     DialogProfileComponent,
     DialogUpdateTugasComponent,
     PrintSilabusComponent,
-    ListDosenComponent
+    ListDosenComponent,
+    DialogAddPengajarComponent,
+    AnggotaKelasComponent,
+    DialogUpdatePostingComponent,
+    NilaiComponent
   ],
   imports: [
     BrowserModule,
@@ -101,6 +110,7 @@ import { ListDosenComponent } from './list-dosen/list-dosen.component';
     MatFileUploadModule,
     MatTooltipModule,
     MatExpansionModule,
+    MatSelectModule,
     CommonModule
   ],
   providers: [],

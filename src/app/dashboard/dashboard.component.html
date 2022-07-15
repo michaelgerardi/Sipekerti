@@ -3,11 +3,8 @@
 </div>
 
 <div class="card">
-    <div class="card-head">
-        <div style="margin-top: -7px;">Kelas XXX</div>
-    </div>
-    <div class="card-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates aperiam earum dolorum voluptatibus ipsam facilis repellat adipisci consectetur illum iure? Neque exercitationem ducimus id officiis beatae autem, magni nesciunt ut?
+    <div class="card-head" *ngFor="let kelas of kelasList">
+        <div style="margin-top: -7px;">{{kelas.nama_kelas}}</div>
     </div>
     <canvas id="myChart" width="200" height="30%"></canvas>     
 </div>

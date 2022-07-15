@@ -1,8 +1,8 @@
 <form [formGroup]="editForm" (ngSubmit)="updateKelas()">
-    <h2 mat-dialog-title style="text-align: center;">Kelas Baru</h2>
+    <h2 mat-dialog-title style="text-align: center;">Form Update Data Kelas</h2>
     <mat-dialog-content class="mat-typography"  >
       <mat-label>Kode Kelas</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left:73px;"> 
+      <mat-form-field appearance="legacy" style="margin-left:80px;"> 
         <input matInput type="text" class="form-control" formControlName="kode_kelas">
       </mat-form-field>
       <br>
@@ -27,7 +27,7 @@
       <br>
       <mat-label>Deskripsi</mat-label>
       <mat-form-field appearance="legacy" style="margin-left: 91px;">
-        <textarea matInput type="text" class="form-control" formControlName="deskripsi"></textarea>
+        <textarea matInput type="text" class="form-control" formControlName="deskripsi" style="height: 80px; "></textarea>
       </mat-form-field>
       <br>
       <mat-label>Tahun</mat-label>

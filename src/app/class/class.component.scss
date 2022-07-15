@@ -4,19 +4,12 @@
     margin-bottom: 10px;
 }
 
-// *{
-//     margin: 0;
-//     padding: 0;
-//     box-sizing: border-box;
-//     text-decoration: none;
-//     // font-family: 'Poppins', sans-serif;
-//   }
-  .wrapper{
+.wrapper{
     background: transparent;
     position: fixed;
     width: 100%;
-  }
-  .wrapper nav{
+}
+.wrapper nav{
     position: relative;
     display: flex;
     max-width: calc(100% - 200px);
@@ -24,7 +17,7 @@
     // height: 70px;
     align-items: center;
     justify-content: space-between;
-  }
+}
   nav .content{
     display: flex;
     align-items: center;
@@ -33,11 +26,7 @@
     margin-left: 80px;
     display: flex;
   }
-//   .content .logo a{
-//     color: #fff;
-//     font-size: 30px;
-//     font-weight: 600;
-//   }
+
   .content .links li{
     list-style: none;
     line-height: 54px;

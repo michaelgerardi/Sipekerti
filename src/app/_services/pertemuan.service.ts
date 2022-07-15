@@ -14,6 +14,10 @@ export class PertemuanService{
         return this.http.get(this.BASE_URL + 'meeting/' + id).toPromise().then(res => res as Pertemuan[]);
     }
 
+    getByIdpertemuan(id:number){
+        return this.http.get(this.BASE_URL + 'getpertemuan/' + id).toPromise().then(res => res as Pertemuan[]);
+    }
+
     getAll(){
         return this.http.get(this.BASE_URL + 'pertemuan').toPromise().then(res => res as Pertemuan[]);
     }

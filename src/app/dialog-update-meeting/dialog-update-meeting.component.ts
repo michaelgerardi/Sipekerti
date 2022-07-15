@@ -20,6 +20,7 @@ export class DialogUpdateMeetingComponent implements OnInit {
     editForm = this.fb.group({
         id:[''],
         id_kelas:['', Validators.required],
+        id_pengajar:['', Validators.required],
         nama_pertemuan:['', Validators.required],
         tanggal_pertemuan:['', Validators.required],
         deskripsi_pertemuan:['', Validators.required],
@@ -41,6 +42,7 @@ export class DialogUpdateMeetingComponent implements OnInit {
     this.editForm = this.fb.group({
     id:[this.datacross.id],
     id_kelas:[this.datacross.id_kelas, Validators.required],
+    id_pengajar:[this.datacross.id_pengajar, Validators.required],
     nama_pertemuan:[this.datacross.nama_pertemuan, Validators.required],
     tanggal_pertemuan:[this.datacross.tanggal_pertemuan, Validators.required],
     deskripsi_pertemuan:[this.datacross.deskripsi_pertemuan, Validators.required],

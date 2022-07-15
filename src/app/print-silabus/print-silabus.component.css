@@ -1,1 +1,1 @@
-#pdfTable{width:500px;height:800px}
+#pdfTable{width:500px;height:-webkit-fit-content;height:-moz-fit-content;height:fit-content}table{font-family:arial,sans-serif;border-collapse:collapse;width:52%;margin-bottom:40px}td,th{border:1px solid #eeeaea;padding:4px}tr:nth-child(even){background-color:#ddd}

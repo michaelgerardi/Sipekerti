@@ -5,75 +5,67 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="container">
-    <input type="checkbox" id="flip">
-    <div class="cover">
-      <div class="front">
-        <img src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" alt="">
-        <div class="text" style="font-style: italic;">
-          <span class="text-1" >"Ing ngarsa sung tulada,</span>
-          <span class="text-2">Ing madya mangun karsa,</span>
-          <span class="text-2">Tut wuri handayani" </span>
-        </div>
-      </div>
-      <div class="back">
-        <img class="backImg" src="ihttps://material.angular.io/assets/img/examples/shiba2.jpg" alt="">
-        <div class="text">
-          <span class="text-1">Complete miles of journey <br> with one step</span>
-          <span class="text-2">Let's get started</span>
-        </div>
-      </div>
-    </div>
-    <div class="forms">
-        <div class="form-content">
-          <div class="login-form">
-            <div class="title">Login</div>
-          <form [formGroup]="userForm" (ngSubmit)="login()">
-            <div class="input-boxes">
-                <div class="input-box">
-                    <i class="fas fa-user"></i>
-                    <input type="text" placeholder="Masukkan username" required formControlName="username">
+    <div class="container">
+        <input type="checkbox" id="flip">
+        <div class="cover">
+            <div class="front">
+                <img src="https://cdn.vuetifyjs.com/images/parallax/material.jpg" alt="">
+                <div class="text" style="font-style: italic;">
+                <span class="text-1" >"Ing ngarsa sung tulada,</span>
+                <span class="text-2">Ing madya mangun karsa,</span>
+                <span class="text-2">Tut wuri handayani" </span>
                 </div>
-                <div class="input-box">
-                    <i class="fas fa-envelope"></i>
-                    <input type="text" placeholder="Masukkan email" required formControlName="email">
-                </div>
-                <div class="input-box">
-                    <i class="fas fa-lock"></i>
-                    <input type="password" placeholder="Masukkan password" required formControlName="password">
-                </div>
-                <!--<div class="text"><a href="#">Lupa password?</a></div>-->
-                <div class="button input-box">
-                    <input type="submit" value="Sumbit">
-                </div>
-                <div class="text sign-up-text">Belum punya akun? <label for="flip">Silakan registrasi!</label></div>
             </div>
-        </form>
-      </div>
-        <div class="signup-form">
-          <div class="title">Registrasi</div>
-        <form [formGroup]="userForm" (ngSubmit)="registrasi()">
-            <div class="input-boxes">
-              <div class="input-box">
-                <i class="fas fa-user"></i>
-                <input type="text" placeholder="Username" required formControlName="username">
-              </div>
-              <div class="input-box">
-                <i class="fas fa-envelope"></i>
-                <input type="text" placeholder="Masukkan email" required formControlName="email">
-              </div>
-              <div class="input-box">
-                <i class="fas fa-lock"></i>
-                <input type="password" placeholder="Masukkan password" required formControlName="password">
-              </div>
-              <div class="button input-box">
-                <input type="submit" value="Sumbit">
-              </div>
-              <div class="text sign-up-text">Anda sudah terdaftar? <label for="flip">Silakan login!</label></div>
+        </div>
+        <div class="forms">
+            <div class="form-content">
+            <div class="login-form">
+                <div class="title">Login</div>
+                <form [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Masukkan username" required formControlName="username">
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input type="password" placeholder="Masukkan password" required formControlName="password">
+                        </div>
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">Belum punya akun? <label for="flip">Silakan registrasi!</label></div>
+                    </div>
+                </form>
             </div>
-      </form>
-    </div>
-    </div>
+            <div class="signup-form">
+                <div class="title">Registrasi</div>
+                <form [formGroup]="regisForm" (ngSubmit)="registrasi()">
+                    <div class="input-boxes">
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Nama Lengkap" required formControlName="nama">
+                        </div>
+                    <div class="input-box">
+                        <i class="fas fa-user"></i>
+                        <input type="text" placeholder="Username" required formControlName="username">
+                    </div>
+                    <div class="input-box">
+                        <i class="fas fa-envelope"></i>
+                        <input type="text" placeholder="Masukkan email" required formControlName="email">
+                    </div>
+                    <div class="input-box">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" placeholder="Masukkan password" required formControlName="password">
+                    </div>
+                    <div class="button input-box">
+                        <input type="submit" value="Submit">
+                    </div>
+                    <div class="text sign-up-text">Anda sudah terdaftar? <label for="flip">Silakan login!</label></div>
+                    </div>
+                </form>
+            </div>
+        </div>
     </div>
   </div>
 </body>

@@ -2,7 +2,6 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Kelas } from '../_models/kelas.model';
 
-
 @Injectable({
   providedIn: 'root'
 })
@@ -30,7 +29,4 @@ export class KelasService{
     getClassById( id: number ) {
       return this.http.get( this.BASE_URL+'kelas/'+id );
     }
-
-   
-    
 }

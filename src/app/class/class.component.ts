@@ -5,6 +5,7 @@ import { KelasService } from '../_services/kelas.service';
 import { DialogUpdateClassComponent } from '../dialog-update-class/dialog-update-class.component';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-class',
@@ -15,20 +16,32 @@ import Swal from 'sweetalert2';
 export class ClassComponent implements OnInit {
 
   kelasList: any =[];
+  kelasListDosen: any =[];
+  Level  =  this.cookieService.get( 'level' );
 
+//  username  =  this.cookieService.get( 'username' );
   constructor(
     public dialog: MatDialog,
     public kelasService: KelasService,
-    private router: Router
+    private router: Router,
+    private cookieService: CookieService
   ) { }
 
   ngOnInit(): void {
     this.readClass();
+    this.readClassDosen();
   }
 
   readClass(){
     this.kelasService.getAll().then(val =>{
       this.kelasList=val
+      console.log(val);
+    })
+  }
+
+  readClassDosen(){
+    this.kelasService.getAll().then(val =>{
+      this.kelasListDosen=val
       console.log(val);
     })
   }
@@ -73,14 +86,10 @@ export class ClassComponent implements OnInit {
   }
 
   public meetingId(id: number){
-    //   this.pertemuanService.getById(id).then(val =>{
-    //     this.pertemuanList = val
-    //     console.log(val);
-    // })
     this.router.navigate(['/list-meeting',id])
     }
 
     public anggota(){
-        this.router.navigate(['/daftar-dosen'])
+        this.router.navigate(['/anggota-kelas'])
     }
 }

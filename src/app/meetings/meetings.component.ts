@@ -5,7 +5,7 @@ import Swal from 'sweetalert2';
 import { DialogAddMeetingComponent } from '../dialog-add-meeting/dialog-add-meeting.component';
 import { PertemuanService } from '../_services/pertemuan.service';
 import { DialogUpdateMeetingComponent } from '../dialog-update-meeting/dialog-update-meeting.component';
-import { PrintSilabusComponent } from '../print-silabus/print-silabus.component';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-meetings',
@@ -17,11 +17,13 @@ export class MeetingsComponent implements OnInit {
     pertemuanList: any =[];
     sub: any;
     y! : number;
-    
+    Level  =  this.cookieService.get( 'level' );
+
     constructor(
       private router: Router,
       private dialog: MatDialog,
-      private pertemuanService: PertemuanService
+      private pertemuanService: PertemuanService,
+      private cookieService: CookieService
     ) { }
 
   ngOnInit(): void {
@@ -38,6 +40,10 @@ export class MeetingsComponent implements OnInit {
 
   public detail(id: number){
     this.router.navigate(['/detail-meeting',id])
+  }
+
+  public print(id: number){
+    this.router.navigate(['/download-silabus',id])
   }
 
   public readMeeting(id: number){
@@ -86,10 +92,10 @@ export class MeetingsComponent implements OnInit {
     })
   }
 
-  public print(data: any){
-    const dialogRef = this.dialog.open(PrintSilabusComponent, {data: data});
-    dialogRef.afterClosed().subscribe(()=>{
-        this.readMeeting(this.y);
-    })
-  }
+//  public print(id:number){
+//    const dialogRef = this.dialog.open(PrintSilabusComponent, {data: id});
+//    dialogRef.afterClosed().subscribe(()=>{
+//        this.readMeeting(this.y);
+//    })
+//  }
 }

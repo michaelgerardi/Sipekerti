@@ -1,32 +1,35 @@
-<h2 mat-dialog-title style="text-align: center;">SILABUS PEMBELAJARAN</h2>
-<mat-dialog-content class="mat-typography" #pdfTable>
-    <div style="font-size: 16px; line-height: 1.5;">
-        <span>Pertemuan</span><span style="margin-left:60px;">: Penelitian dan Publikasi untuk Meningkatkan Kualitas Pembelajaran</span>
+<div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0; margin-bottom: 20px;">
+    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Silabus Pertemuan</h1>
+</div>
+<button mat-raised-button cdkFocusInitial (click)="downloadAsPDF()" 
+    style="background-color: #E0F2F1; margin-left: 40px; margin-bottom: 20px;">
+    Export to PDF
+</button>
+<div #pdfTable *ngFor="let pertemuan of pertemuanList;"> 
+    <h5 style="margin-left: 26%; font-weight: bold;">SILABUS</h5>
+    <div style="font-size: 8px; line-height: 1.5; margin-left: 2%">
+        <span>Pertemuan</span><span style="margin-left:60px;">: {{pertemuan.nama_pertemuan}}</span>
         <br>
-        <span>Kelas / Tahun</span><span style="margin-left:42px ;">: 1 / 2022</span>
+        <span>Tanggal Pertemuan</span><span style="margin-left:30px ;">: {{pertemuan.tanggal_pertemuan.split("-").reverse().join("-")}}</span>
         <br>
-        <span>Bobot</span><span style="margin-left:97px;">: 3</span>
+        <span>Bobot</span><span style="margin-left:78px;">: {{pertemuan.bobot}}</span>
     </div>
   
-    <table style="margin-top: 20px;">
-        <tr style="text-align: center;">
-            <th style="width: 5%;">Materi Pembelajaran</th>
-            <th style="width: 5%">Sub Pencapaian</th>
-            <th style="width: 8%">Indikator</th>
-            <th style="width: 8%">Metode Penilaian</th>
-            <th style="width: 8%">Metode Pembelajaran</th>
+    <table style="margin-top: 20px; margin-left: 2%;line-height: 1;">
+        <tr style="text-align: center; font-size: 8px;">
+            <th >Materi Pembelajaran</th>
+            <th >Sub Pencapaian</th>
+            <th >Indikator</th>
+            <th >Metode Penilaian</th>
+            <th >Metode Pembelajaran</th>
         </tr>
     
-        <tr style="text-align: justify;">
-            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
-            <td>Connect user input to screen reactions by using ripples to both indicate the point of touch</td>
-            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
-            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
-            <td>By default, a ripple is activated when the host element of the matRipple directive receives mouse or touch events. Upon being pressed, a ripple will begin fading in from the point of contact, radiating to cover the host element. Each ripple will fade out only upon release of the mouse or touch.</td>
+        <tr style="text-align: justify;font-size: 8px;">
+            <td style="width: 9%;">{{pertemuan.materi}}</td>
+            <td style="width: 8%;">{{pertemuan.sub_cp}}</td>
+            <td style="width: 7%;">{{pertemuan.indikator}}</td>
+            <td style="width: 13%;">{{pertemuan.metode_penilaian}}</td>
+            <td style="width: 13%;">{{pertemuan.metode_pembelajaran}}</td>
         </tr>
     </table>
-</mat-dialog-content>
-<mat-dialog-actions align="end">
-  <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="downloadAsPDF()">Export to PDF</button>
-</mat-dialog-actions>
+</div>

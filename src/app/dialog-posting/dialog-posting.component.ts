@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { PostingService } from '../_services/posting.service';
 import Swal from 'sweetalert2';
+import { PertemuanService } from '../_services/pertemuan.service';
 
 @Component({
   selector: 'app-dialog-posting',
@@ -12,8 +13,28 @@ export class DialogPostingComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private postingService: PostingService
-  ) { }
+    private postingService: PostingService,
+    private pertemuanService : PertemuanService
+    ) { 
+      this.listPertemuan()
+    }
+  
+    daftarPertemuan: any = [];
+    pertemuanModel = "";
+    selectPertemuan: any;
+  
+    ChangePertemuan(e: any){
+      console.log(e.target.value);
+      this.selectPertemuan = e.target.value;
+    }
+  
+    listPertemuan(){
+      this.pertemuanService.getAll().then(val => {
+          this.daftarPertemuan = val
+          console.log(val);
+          
+      })
+    }
 
   ngOnInit(): void {
   }
@@ -22,8 +43,10 @@ export class DialogPostingComponent implements OnInit {
 
   postingForm = this.fb.group({
     id: [''],
-    pesan: ['', Validators.required],
-    id_pertemuan: ['']
+    catatan: ['', Validators.required],
+    id_pertemuan: [''],
+    id_peserta: [''],
+    komentar: ['']
   })
 
   create(){

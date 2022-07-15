@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 
 interface SideNavToggle{
   screenWidth: number;
@@ -11,8 +12,11 @@ interface SideNavToggle{
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+    constructor(
+        private cookieService: CookieService
+      ) { }
   title = 'sipekerti';
-
+   Level =  this.cookieService.get( 'Level' );
   isSideNavCollapsed = false;
   screenWidth = 0;
 

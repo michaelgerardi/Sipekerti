@@ -10,22 +10,21 @@ import { TugasService } from '../_services/tugas.service';
   styleUrls: ['./dialog-update-tugas.component.scss']
 })
 export class DialogUpdateTugasComponent implements OnInit {
-
     constructor(
         private fb: FormBuilder,
         private tugasService: TugasService,
         @Inject(MAT_DIALOG_DATA) public datacross: any
-      ) { }
+    ) { }
     
-      editForm = this.fb.group({
+    editForm = this.fb.group({
         id: [''],
         id_pertemuan: ['', Validators.required], 
         judul: ['', Validators.required],
         tanggal_selesai: ['', Validators.required],
         dokumen: ['', Validators.required]
-      })
+    })
 
-  ngOnInit(): void {
+    ngOnInit(): void {
     this.datacross;
     console.log(this.datacross);
 

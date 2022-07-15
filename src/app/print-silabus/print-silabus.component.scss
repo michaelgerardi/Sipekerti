@@ -1,4 +1,21 @@
 #pdfTable{
     width: 500px;
-    height: 800px;
+    height: fit-content;
 }
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 52%;
+    margin-bottom: 40px;
+  }
+  
+  td, th {
+    border: 1px solid #eeeaea;
+    padding: 4px;
+    //font-size: small;
+  }
+  
+  tr:nth-child(even) {
+    background-color: #dddddd;
+  }

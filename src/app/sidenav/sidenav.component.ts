@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/core';
 import { animate, style, transition, trigger } from '@angular/animations';
 import { navbarData } from './nav-data';
+import { CookieService } from 'ngx-cookie-service';
 
 interface SideNavToggle{
   screenWidth: number;
@@ -30,7 +31,11 @@ interface SideNavToggle{
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    public cookieService: CookieService
+   
+  ) { }
+  
 
   @HostListener('window:resize', ['$event'])
   onResize(event: any){
@@ -47,6 +52,22 @@ export class SidenavComponent implements OnInit {
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;
+  Level  =  this.cookieService.get( 'Level' );
+ 
+  navbarData1 = [
+   
+    {
+        routeLink: 'class',
+       icon: 'fal fa-list-alt',
+        label: 'Daftar Kelas'
+    },
+    {
+        routeLink: 'files',
+        icon: 'fal fa-archive',
+        label: 'Dokumen'
+    }
+];
+
   navData = navbarData;
   screenWidth = 0;
   

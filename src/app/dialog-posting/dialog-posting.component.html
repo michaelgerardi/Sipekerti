@@ -1,13 +1,28 @@
 <form [formGroup]="postingForm" (ngSubmit)="create()">
     <h2 mat-dialog-title style="text-align: center;">Catatan Dosen</h2>
     <mat-dialog-content class="mat-typography" style="width: 700px; height:400px">
-        <mat-label>ID Pertemuan</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left:53px;"> 
-            <input matInput type="text" formControlName="id_pertemuan">
+        <mat-label>Pertemuan</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left:70px; width: 400px;"> 
+            <mat-select class="custom-select" name="id_pertemuan" [(ngModel)]="pertemuanModel" required (change)="ChangePertemuan($event)">
+                <mat-option *ngFor="let pertemuan of daftarPertemuan" [value]="pertemuan.id">
+                {{pertemuan.nama_pertemuan}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
         <br>
+        <mat-label>ID Peserta</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left:75px;"> 
+            <input matInput type="text" formControlName="id_peserta">
+        </mat-form-field>
+        <br>
+        <mat-label>Catatan Peserta</mat-label>
         <mat-form-field appearance="legacy" style="width: 630px; "> 
-            <textarea matInput type="text" placeholder="Tulis disini ...." formControlName="pesan" style="height: 400px;"></textarea>
+            <textarea matInput type="text" placeholder="Tulis disini ...." formControlName="catatan" style="height: 400px;"></textarea>
+        </mat-form-field>
+        <br>
+        <mat-label>Catatan Pengajar</mat-label>
+        <mat-form-field appearance="legacy" style="width: 630px; "> 
+            <textarea matInput type="text" placeholder="Tulis disini ...." formControlName="komentar" style="height: 400px;"></textarea>
         </mat-form-field>
         <br>
     </mat-dialog-content>

@@ -1,6 +1,8 @@
 export class Posting{
     id! : number;
-    pesan! : string;
+    catatan! : string;
     id_pertemuan!: number;
-    created_at!: Date;
+    komentar! : string;
+    id_peserta!: number;
+    id_pengajar!: number;
 }

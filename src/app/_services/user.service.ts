@@ -1,7 +1,5 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
 import { User } from "../_models/user.model";
 
 @Injectable({
@@ -12,12 +10,15 @@ export class UserService{
     constructor( private http: HttpClient){}
 
     public login(data: any){
-        //console.log(data);
         return this.http.post(this.BASE_URL + 'login', data)
     }
 
     public registrasi(data: any){
         return this.http.post(this.BASE_URL + 'register', data)
+    }
+
+    public addPengajar(data: any){
+        return this.http.post(this.BASE_URL + 'addPengajar', data)
     }
 
     public peserta(){

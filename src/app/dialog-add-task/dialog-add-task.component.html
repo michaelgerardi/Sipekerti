@@ -1,14 +1,18 @@
 <form [formGroup]="tugasForm" (ngSubmit)="create()">
-    <h2 mat-dialog-title style="text-align: center;">Tugas Baru</h2>
+    <h2 mat-dialog-title style="text-align: center;">Form Tugas Baru</h2>
     <mat-dialog-content class="mat-typography" style="width: 380px;">
-      <mat-label>ID Pertemuan</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 40px;">
-        <input matInput type="text" formControlName="id_pertemuan">
+      <mat-label>Pertemuan</mat-label>
+      <mat-form-field appearance="legacy" style="margin-left: 56px;">
+        <mat-select class="custom-select" name="id_pertemuan" [(ngModel)]="pertemuanModel" required (change)="ChangePertemuan($event)">
+            <mat-option *ngFor="let pertemuan of daftarPertemuan" [value]="pertemuan.id">
+            {{pertemuan.nama_pertemuan}}
+            </mat-option>
+        </mat-select>
       </mat-form-field>
       <br>
       <mat-label>Judul</mat-label>
       <mat-form-field appearance="legacy" style="margin-left: 91px;">
-        <textarea matInput type="text" formControlName="judul"></textarea>
+        <textarea matInput type="text" formControlName="judul" placeholder="Diisi dengan nama pertemuan"></textarea>
       </mat-form-field>
       <br>
       <mat-label>Dokumen</mat-label>

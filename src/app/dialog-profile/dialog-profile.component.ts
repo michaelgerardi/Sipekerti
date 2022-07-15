@@ -24,8 +24,7 @@ export class DialogProfileComponent implements OnInit {
         tanggal_lahir: ['', Validators.required],
         alamat: ['', Validators.required],
         gender: ['', Validators.required],
-        telp: ['', Validators.required],
-        email: ['', Validators.required]
+        telp: ['', Validators.required]
       })
 
   ngOnInit(): void {

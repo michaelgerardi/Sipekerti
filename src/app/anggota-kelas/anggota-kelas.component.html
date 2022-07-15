@@ -1,0 +1,41 @@
+<div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0;margin-bottom: 40px;">
+    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Dosen</h1>
+</div>
+
+<table>
+    <th colspan="5" style="text-align: center; font-size:15px;">Dosen Pengajar</th>
+    <tr>
+        <th style="text-align: center; width:30px">No</th>
+        <th style="text-align: center; width:80px">NIK</th>
+        <th style="text-align: center; width:200px">Nama Lengkap</th>
+        <th style="text-align: center; width:40px">Telepon</th>
+        <th style="text-align: center; width:100px">Email</th>
+    </tr>
+
+    <tr *ngFor="let pengajar of pengajarList; let i = index">
+        <td style="text-align: center;">{{i+1}}</td>
+        <td style="text-align: center;">{{pengajar.nik}}</td>
+        <td style="text-align: left;">{{pengajar.nama}}</td>
+        <td style="text-align: center;">{{pengajar.no_hp}}</td>
+        <td style="text-align: center;">{{pengajar.email}}</td>
+    </tr>
+</table>
+<br>
+<table>
+    <th colspan="6" style="text-align: center; font-size:15px;">Dosen Peserta</th>
+    <tr>
+        <th style="text-align: center; width:30px">No</th>
+        <th style="text-align: center; width:80px">NIK</th>
+        <th style="text-align: center; width:200px">Nama Lengkap</th>
+        <th style="text-align: center; width:40px">Telepon</th>
+        <th style="text-align: center; width:100px">Email</th>
+    </tr>
+    
+    <tr *ngFor="let peserta of pesertaList; let i = index">
+        <td style="text-align: center;">{{i+1}}</td>
+        <td style="text-align: center;">{{peserta.nik}}</td>
+        <td style="text-align: left;">{{peserta.nama}}</td>
+        <td style="text-align: center;">{{peserta.no_hp}}</td>
+        <td style="text-align: center;">{{peserta.email}}</td>
+    </tr>
+</table>

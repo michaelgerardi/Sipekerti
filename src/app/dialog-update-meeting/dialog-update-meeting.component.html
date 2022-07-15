@@ -1,5 +1,5 @@
 <form [formGroup]="editForm" (ngSubmit)="updatePertemuan()">
-    <h2 mat-dialog-title style="text-align: center;">Pertemuan Baru</h2>
+    <h2 mat-dialog-title style="text-align: center;">Form Update Data Pertemuan</h2>
     <mat-dialog-content class="mat-typography" style="width: 480px;">
         <mat-label>ID Kelas</mat-label>
         <mat-form-field appearance="legacy" style="margin-left: 150px;">
@@ -7,59 +7,59 @@
         </mat-form-field>
         <br>
         <mat-label>Nama Pertemuan</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 100px;">
-            <input matInput type="text" formControlName="nama_pertemuan">
+        <mat-form-field appearance="legacy" style="margin-left: 92px;">
+            <textarea matInput type="text" formControlName="nama_pertemuan" style="height: 50px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Tanggal Pertemuan</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 80px;">
+        <mat-form-field appearance="legacy" style="margin-left: 78px;">
             <input matInput [matDatepicker]="picker1" formControlName="tanggal_pertemuan">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
         <br>
         <mat-label>Deskripsi</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 155px;">
-            <input matInput type="text" formControlName="deskripsi_pertemuan">
+        <mat-form-field appearance="legacy" style="margin-left: 143px;">
+            <textarea matInput type="text" formControlName="deskripsi_pertemuan" style="height: 80px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Tempat</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 164px;">
+        <mat-form-field appearance="legacy" style="margin-left: 150px;">
             <input matInput type="text" formControlName="tempat">
         </mat-form-field>
         <br>
         <mat-label>Sub Capai</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 146px;">
+        <mat-form-field appearance="legacy" style="margin-left: 135px;">
             <input matInput type="text" formControlName="sub_cp">
         </mat-form-field>
         <br>
         <mat-label>Materi</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 168px;">
+        <mat-form-field appearance="legacy" style="margin-left: 157px;">
             <input matInput type="text" formControlName="materi">
         </mat-form-field>
         <br>
         <mat-label>Indikator</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 152px;">
-            <input matInput type="text" formControlName="indikator">
+        <mat-form-field appearance="legacy" style="margin-left: 142px;">
+            <textarea matInput type="text" formControlName="indikator" style="height: 100px"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Metode Penilaian</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 100px;">
-            <input matInput type="text" formControlName="metode_penilaian">
+        <mat-form-field appearance="legacy" style="margin-left: 90px;">
+            <textarea matInput type="text" formControlName="metode_penilaian" style="height: 100px"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Metode Pembelajaran</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 72px;">
-            <input matInput type="text" formControlName="metode_pembelajaran">
+        <mat-form-field appearance="legacy" style="margin-left: 60px;">
+            <textarea matInput type="text" formControlName="metode_pembelajaran" style="height: 100px"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Pustaka</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 158px;">
+        <mat-form-field appearance="legacy" style="margin-left: 145px;">
             <input matInput type="text" formControlName="pustaka">
         </mat-form-field>
         <br>
         <mat-label>Bobot</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 171px;">
+        <mat-form-field appearance="legacy" style="margin-left: 157px;">
             <input matInput type="text" formControlName="bobot">
         </mat-form-field>
         <br>

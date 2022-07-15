@@ -1,35 +1,49 @@
 <form [formGroup]="pertemuanForm" (ngSubmit)="createPertemuan()">
-    <h2 mat-dialog-title style="text-align: center;">Pertemuan Baru</h2>
-    <mat-dialog-content class="mat-typography" style="width: 480px;">
-        <mat-label>ID Kelas</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 150px;">
-            <input matInput type="text" formControlName="id_kelas">
+    <h2 mat-dialog-title style="text-align: center;">Form Pertemuan Baru</h2>
+    <mat-dialog-content class="mat-typography" style="width: 480px;">     
+        <mat-label>Kelas</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 172px;">
+            <!--<input matInput type="text" formControlName="id_kelas">-->
+            <mat-select class="custom-select" name="id_kelas" [(ngModel)]="kelasModel" required (change)="ChangeKelas($event)">
+                <mat-option *ngFor="let kelas of daftarKelas" [value]="kelas.id">
+                {{kelas.nama_kelas}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <br>
+        <mat-label>Pilih Pengajar</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 120px;">
+            <mat-select class="custom-select" name="id_pengajar" [(ngModel)]="pengajarModel" required (change)="ChangePengajar($event)">
+                <mat-option *ngFor="let pengajar of daftarPengajar" [value]="pengajar.id">
+                {{pengajar.nama}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
         <br>
         <mat-label>Nama Pertemuan</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 100px;">
+        <mat-form-field appearance="legacy" style="margin-left: 97px;">
             <input matInput type="text" formControlName="nama_pertemuan">
         </mat-form-field>
         <br>
         <mat-label>Tanggal Pertemuan</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 80px;">
+        <mat-form-field appearance="legacy" style="margin-left: 85px;">
             <input matInput [matDatepicker]="picker1" formControlName="tanggal_pertemuan">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
         <br>
         <mat-label>Deskripsi</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 155px;">
+        <mat-form-field appearance="legacy" style="margin-left: 150px;">
             <input matInput type="text" formControlName="deskripsi_pertemuan">
         </mat-form-field>
         <br>
         <mat-label>Tempat</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 164px;">
+        <mat-form-field appearance="legacy" style="margin-left: 160px;">
             <input matInput type="text" formControlName="tempat">
         </mat-form-field>
         <br>
         <mat-label>Sub Capai</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 146px;">
+        <mat-form-field appearance="legacy" style="margin-left: 145px;">
             <input matInput type="text" formControlName="sub_cp">
         </mat-form-field>
         <br>
@@ -63,6 +77,36 @@
             <input matInput type="text" formControlName="bobot">
         </mat-form-field>
         <br>
+        <!--<div class="col-md-6 offset-md-3">
+            <div>
+                <input type="file" #selectFile value="select" (change)="onFileSelected($event)">
+            </div>
+            <div class="mt-5">
+                <div class="row">
+                    <mat-grid-list cols="4" rowHeight="1:1">
+                        <mat-grid-tile>
+                            <div style="position: relative;">
+                                <span class="btn-remove-image" (click)="removeImage()"></span>
+                                <img [src=""] alt="">
+                            </div>
+                        </mat-grid-tile>
+
+                    </mat-grid-list>
+                </div>
+            </div>
+        </div>-->
+        <!--<br>
+        <div class="col-md-6 offset-md-3">
+            <h3>Choose File</h3>
+            <form (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <input type="file" name="image"  />
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-primary">Submit</button>
+                </div>
+            </form>
+        </div>-->
         <!--<mat-label>Gambar</mat-label>
         <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" (change)="onFileSelected($event)">
         <button type="button" (click)="onUpload()"></button>

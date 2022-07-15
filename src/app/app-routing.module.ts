@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AnggotaKelasComponent } from './anggota-kelas/anggota-kelas.component';
 import { ArchivePengajarComponent } from './archive-pengajar/archive-pengajar.component';
 import { ArchivePesertaComponent } from './archive-peserta/archive-peserta.component';
 import { ArchiveComponent } from './archive/archive.component';
@@ -9,6 +10,7 @@ import { DetailMeetingComponent } from './detail-meeting/detail-meeting.componen
 import { ListDosenComponent } from './list-dosen/list-dosen.component';
 import { LoginComponent } from './login/login.component';
 import { MeetingsComponent } from './meetings/meetings.component';
+import { NilaiComponent } from './nilai/nilai.component';
 import { PrintSilabusComponent } from './print-silabus/print-silabus.component';
 import { TasksPengajarComponent } from './tasks-pengajar/tasks-pengajar.component';
 import { TasksPesertaComponent } from './tasks-peserta/tasks-peserta.component';
@@ -22,9 +24,11 @@ const routes: Routes = [
   {path: 'files', component: ArchiveComponent},
   {path: 'list-meeting/:id', component: MeetingsComponent},
   {path: 'detail-meeting/:id', component: DetailMeetingComponent},
+  {path: 'nilai-meeting/:id', component: NilaiComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'download-silabus', component: PrintSilabusComponent},
+  {path: 'download-silabus/:id', component: PrintSilabusComponent},
   {path: 'daftar-dosen', component: ListDosenComponent},
+  {path: 'anggota-kelas', component: AnggotaKelasComponent},
 
   {path: 'tasks-teacher', component: TasksPengajarComponent},
   {path: 'files-teacher', component: ArchivePengajarComponent},

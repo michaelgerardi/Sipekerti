@@ -1,13 +1,11 @@
-<!-- <app-sidenav-pengajar (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav-pengajar>
-<app-body-pengajar 
-[collapsed]="isSideNavCollapsed"
-[screenWidth]="screenWidth"
-></app-body-pengajar> -->
-
-<app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
+<!--<app-login *ngIf="Level == '1'">-->
+    <app-sidenav (onToggleSideNav)="onToggleSideNav($event)"></app-sidenav>
 <app-body
   [collapsed]="isSideNavCollapsed"
   [screenWidth]="screenWidth" 
 >
 </app-body>
+<!--</app-login>-->
+
+
 <router-outlet></router-outlet>

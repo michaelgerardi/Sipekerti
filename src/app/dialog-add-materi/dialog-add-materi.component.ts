@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
 import { MateriService } from '../_services/materi.service';
 import Swal from 'sweetalert2';
+import { PertemuanService } from '../_services/pertemuan.service';
 
 @Component({
   selector: 'app-dialog-add-materi',
@@ -12,8 +13,28 @@ export class DialogAddMateriComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private materiService: MateriService
-  ) { }
+    private materiService: MateriService,
+    private pertemuanService : PertemuanService
+  ) { 
+    this.listPertemuan()
+  }
+
+  daftarPertemuan: any = [];
+  pertemuanModel = "";
+  selectPertemuan: any;
+
+  ChangePertemuan(e: any){
+    console.log(e.target.value);
+    this.selectPertemuan = e.target.value;
+  }
+
+  listPertemuan(){
+    this.pertemuanService.getAll().then(val => {
+        this.daftarPertemuan = val
+        console.log(val);
+        
+    })
+  }
 
   ngOnInit(): void {
   }
@@ -23,12 +44,6 @@ export class DialogAddMateriComponent implements OnInit {
     judul: ['', Validators.required],
     dokumen: ['', Validators.required]
   })
-
-  afuConfig = {
-    uploadAPI: {
-      url:"https://example-file-upload-api"
-    }
-    };
     
   create(){
     this.materiService.insert(this.materiForm.value).subscribe(val => {
@@ -38,13 +53,6 @@ export class DialogAddMateriComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       })
-      // Swal.fire({
-      //       icon: 'error',
-      //       title: 'Coba Lagi!',
-      //       showConfirmButton: false,
-      //       timer: 2000
-      // });
-      // console.log(val);
     })
   }
 }

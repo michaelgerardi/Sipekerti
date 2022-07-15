@@ -1,6 +1,7 @@
 export class Pertemuan{
     id! : number;
     id_kelas! : number;
+    id_pengajar!: number;
     nama_pertemuan! : string;
     tanggal_pertemuan! : Date;
     deskripsi_pertemuan! : string;
@@ -12,5 +13,5 @@ export class Pertemuan{
     metode_pembelajaran! : string;
     pustaka! : string;
     bobot! : number;
-    //upload_image! : string;
+    upload_image! : string;
 }

@@ -18,11 +18,14 @@ export class PostingService{
     }
 
     insert(data: any){
-      return this.http.post(this.BASE_URL + 'komentar/',JSON.stringify(data) );
+      return this.http.post(this.BASE_URL + 'add-posting/',JSON.stringify(data) );
+    }
+
+    update( id: number, data: any ) {
+        return this.http.put( this.BASE_URL + 'update-posting/' + id, JSON.stringify(data) );
     }
 
     delete(id: number){
-      return this.http.delete(this.BASE_URL+'komentar/'+id);
+      return this.http.delete(this.BASE_URL+'hapus-posting/'+id);
     }
-    
 }
