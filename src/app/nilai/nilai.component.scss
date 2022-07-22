@@ -7,12 +7,19 @@ table {
     margin-bottom: 40px;
 }
   
-  td, th {
+td, th {
     border: 1px solid #eeeaea;
     padding: 8px;
     font-size: small;
-  }
+}
   
-  tr:nth-child(even) {
+tr:nth-child(even) {
     background-color: #dddddd;
-  }
+}
+
+.row{
+    flex-direction: row;
+    display: inline-flex;
+    margin-top: 20px;
+    margin-left: 100%;
+}

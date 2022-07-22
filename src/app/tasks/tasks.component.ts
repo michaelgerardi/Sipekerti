@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { NilaiService } from '../_services/nilai.service';
-import { PertemuanService } from '../_services/pertemuan.service';
-import { TugasService } from '../_services/tugas.service';
-import { UserService } from '../_services/user.service';
 
 @Component({
   selector: 'app-tasks',
@@ -12,66 +10,55 @@ import { UserService } from '../_services/user.service';
 export class TasksComponent implements OnInit{
     
     constructor(
-        private tugasService: TugasService,
-        private userService: UserService,
-        private pertemuanService: PertemuanService,
-        private nilaiService: NilaiService
-      ) {}
+        private nilaiService: NilaiService,
+        private router: Router
+      ) { }
     
-      pesertaList: any = [];
-      pertemuanList: any = [];
-      nilaiList: any =[];
       dataNilai: any =[];
       rerata: any;
       statusNilai: any;
     
+      y! : number;
+      no! : number;
+      sub: any;
+      selectedDay: string = '';
+    
       ngOnInit(): void {
-       // this.readNilai(),
-        this.peserta(),
-        this.pertemuan()
-        //this.nilai(id)
+        //this.sub = this.router.routerState.snapshot.url;
+        //console.log(this.sub);
+        //var splitted = this.sub.split("/", 3); 
+        //this.y = +splitted[2];
+    
+        this.readNilai()
       }
     
-    //  public nilai(id: number){
-    //    this.nilaiService.getId(id).then(val => {
-    //        this.dataNilai = val
-    //    })
-    //  }
-
-      public peserta(){
-        this.userService.peserta().then(val => {
-            this.pesertaList = val
-            console.log(val);
-        })
+      selectChangeHandler (event: any) {
+        this.selectedDay = event.target.value;
       }
-
-      public pertemuan(){
-        this.pertemuanService.getAll().then(val =>{
-            this.pertemuanList = val
-            console.log(val);  
-        })
+      
+      public readNilai(){
+        //this.nilaiService.getAll(id).then(val =>{
+        //  var total = 0
+        //  var counter = 0
+        //  var status =0
+        //  var statusNilai=[]
+        //  var statusLulus = ""
+        //  for(const i of val){
+        //    total += parseInt(i.nilai)
+        //    counter += 1
+        //    status = parseInt(i.nilai)
+        //    if(status >= 70){
+        //        statusNilai.push("LULUS")
+        //    }
+        //    else{
+        //        statusNilai.push("TiDAK LULUS")
+        //    }
+        //  }
+        //  this.dataNilai=val
+        //  this.rerata = total/counter
+        //  //this.statusNilai = statusLulus
+        //  console.log(statusNilai);
+        //})
       }
-
-    //  public readNilai(){
-    //    this.nilaiService.getId().then(val =>{
-    //      var total = 0
-    //      var counter = 0
-    //      var status =''
-    //      for(const i of val){
-    //        total += parseInt(i.nilai)
-    //        counter += 1
-    //        status = i.nilai
-    //        if(status >= '70'){
-    //            "LULUS"
-    //        }
-    //        else{
-    //            "TIDAK LULUS"
-    //        }
-    //      }
-    //      this.dataNilai=val
-    //      this.rerata = total/counter
-    //      this.statusNilai = status
-    //    })
-    //  }
 
 }

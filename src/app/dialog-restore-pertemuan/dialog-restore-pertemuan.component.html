@@ -1,0 +1,26 @@
+<h2 mat-dialog-title style="text-align: center;">Riwayat Penghapusan Data Pertemuan</h2>
+<mat-divider style="margin-bottom: 20px;"></mat-divider>
+<mat-dialog-content class="mat-typography" style="width: 750px; margin-bottom: 20px;">
+    <table>
+        <tr>
+            <th style="text-align: center; width:30px">No</th>
+            <th style="text-align: center; width:80px">Nama Pertemuan</th>
+            <th style="text-align: center; width:200px">Tanggal Pertemuan</th>
+            <th style="text-align: center; width:100px">Aktifitas</th>
+        </tr>
+    
+        <tr *ngFor="let pertemuan of pertemuanList; let i = index">
+            <td style="text-align: center;">{{i+1}}</td>
+            <td style="text-align: center;">{{pertemuan.nama_pertemuan}}</td>
+            <td style="text-align: left;">{{pertemuan.tanggal_pertemuan}}</td>
+            <td style="text-align: center;">
+                <button mat-raised-button matTooltip="Pulihkan data pertemuan" style="margin-left: 10px;" (click)="restore(pertemuan.id)">
+                    <i class="fa fa-recycle" aria-hidden="true"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions align="center" >
+    <button mat-button mat-dialog-close style="margin-bottom: 15px;">Tutup</button>
+</mat-dialog-actions>

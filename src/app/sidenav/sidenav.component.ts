@@ -33,7 +33,6 @@ export class SidenavComponent implements OnInit {
 
   constructor(
     public cookieService: CookieService
-   
   ) { }
   
 
@@ -61,6 +60,11 @@ export class SidenavComponent implements OnInit {
        icon: 'fal fa-list-alt',
         label: 'Daftar Kelas'
     },
+    //{
+    //    routeLink: 'tasks',
+    //    icon: 'fal fa-calendar-check',
+    //    label: 'Daftar Nilai'
+    //},
     {
         routeLink: 'files',
         icon: 'fal fa-archive',

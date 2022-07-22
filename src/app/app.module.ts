@@ -53,6 +53,11 @@ import { DialogAddPengajarComponent } from './dialog-add-pengajar/dialog-add-pen
 import { AnggotaKelasComponent } from './anggota-kelas/anggota-kelas.component';
 import { DialogUpdatePostingComponent } from './dialog-update-posting/dialog-update-posting.component';
 import { NilaiComponent } from './nilai/nilai.component';
+import { DialogUploadComponent } from './dialog-upload/dialog-upload.component';
+import { DialogRestoreDosenComponent } from './dialog-restore-dosen/dialog-restore-dosen.component';
+import { DialogRestoreKelasComponent } from './dialog-restore-kelas/dialog-restore-kelas.component';
+import { DialogRestorePertemuanComponent } from './dialog-restore-pertemuan/dialog-restore-pertemuan.component';
+import { DialogAddNilaiComponent } from './dialog-add-nilai/dialog-add-nilai.component';
 
 @NgModule({
   declarations: [
@@ -87,7 +92,12 @@ import { NilaiComponent } from './nilai/nilai.component';
     DialogAddPengajarComponent,
     AnggotaKelasComponent,
     DialogUpdatePostingComponent,
-    NilaiComponent
+    NilaiComponent,
+    DialogUploadComponent,
+    DialogRestoreDosenComponent,
+    DialogRestoreKelasComponent,
+    DialogRestorePertemuanComponent,
+    DialogAddNilaiComponent
   ],
   imports: [
     BrowserModule,

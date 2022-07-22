@@ -1,0 +1,30 @@
+<h2 mat-dialog-title style="text-align: center;">Riwayat Penghapusan Data Dosen</h2>
+<mat-divider style="margin-bottom: 20px;"></mat-divider>
+<mat-dialog-content class="mat-typography" style="width: 750px;">
+    <table>
+        <tr>
+            <th style="text-align: center; width:30px">No</th>
+            <th style="text-align: center; width:80px">NIK</th>
+            <th style="text-align: center; width:200px">Nama Lengkap</th>
+            <th style="text-align: center; width:40px">Telepon</th>
+            <th style="text-align: center; width:100px">Email</th>
+            <th style="text-align: center; width:100px">Aktifitas</th>
+        </tr>
+    
+        <tr *ngFor="let dosen of dosenList; let i = index">
+            <td style="text-align: center;">{{i+1}}</td>
+            <td style="text-align: center;">{{dosen.nik}}</td>
+            <td style="text-align: left;">{{dosen.nama}}</td>
+            <td style="text-align: center;">{{dosen.no_hp}}</td>
+            <td style="text-align: center;">{{dosen.email}}</td>
+            <td style="text-align: center;">
+                <button mat-raised-button matTooltip="Pulihkan data dosen" style="margin-left: 10px;" (click)="restore(dosen.id)">
+                    <i class="fa fa-recycle" aria-hidden="true"></i>
+                </button>
+            </td>
+        </tr>
+    </table>
+</mat-dialog-content>
+<mat-dialog-actions align="center">
+    <button mat-button mat-dialog-close style="margin-bottom: 15px;">Tutup</button>
+</mat-dialog-actions>

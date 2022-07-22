@@ -10,11 +10,11 @@ export class MateriService{
     constructor( private http: HttpClient){}
 
     getById(id:number){
-        return this.http.get(this.BASE_URL + 'material/' + id).toPromise().then(res => res as Materi[]);
+        return this.http.get(this.BASE_URL + 'namapertemuan/' + id).toPromise().then(res => res as Materi[]);
     }
 
     getAll(){
-        return this.http.get(this.BASE_URL + 'materi/').toPromise().then(res => res as Materi[]);
+        return this.http.get(this.BASE_URL + 'joinmateri/').toPromise().then(res => res as Materi[]);
     }
 
     insert(data: any){

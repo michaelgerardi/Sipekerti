@@ -1,23 +1,23 @@
 <div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0; margin-bottom: 40px;">
-    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Nilai</h1>
+    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Nilai Pertemuan</h1>
 </div>
   
 <div >
-    <!--<h3 style="margin-top: 20px; font-weight: 500; margin-left: 50px;">{{nilai.id_tugas}}</h3>-->
-    <table *ngFor="let nilai of dataNilai; let i = index">
+    <table >
       <tr style="text-align: center;">
         <th style="width: 8%">No</th>
-        <th style="width: 50%">Nama Peserta</th>
-        <th>Nilai</th>
-        <th>Status</th>
+        <th style="width: 30%">Nama Peserta</th>
+        <th style="width: 10%">Nilai</th>
+        <th style="width: 15%">Status</th>
       </tr>
     
-      <tr >
+      <tr *ngFor="let nilai of dataNilai; let i = index">
         <td style="text-align: center;">{{i+1}}</td>
         <td>{{nilai.id_peserta}}</td>
         <td style="text-align: center;">{{nilai.nilai}}</td>
-        <td><{{statusNilai}}/td>
+        <td style="text-align: center;">{{nilai.status}}</td>
       </tr>
+      
       <tr>
         <td colspan="2">Rata - rata</td>
         <td style="text-align: center;">{{rerata}}</td>

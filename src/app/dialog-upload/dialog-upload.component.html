@@ -1,0 +1,13 @@
+<form [formGroup]="editForm" (ngSubmit)="update()">
+    <h2 mat-dialog-title style="text-align: center;">Upload Tugas</h2>
+    <mat-dialog-content class="mat-typography" style="width: 400px;">
+        <br>
+        <mat-form-field appearance="legacy" style="margin-left: 10px;">
+            <input formControlName="tugas" type="file" class="form-control" (change)="onFileSelected($event)">
+        </mat-form-field>
+    </mat-dialog-content>
+    <mat-dialog-actions align="center">
+        <button mat-button mat-dialog-close>Batal</button>
+        <button mat-button [mat-dialog-close] [disabled]="!editForm.valid" type="submit" (click)="onUpload()">Upload</button>
+    </mat-dialog-actions>
+</form>

@@ -14,6 +14,7 @@ import { DialogUpdateMateriComponent } from '../dialog-update-materi/dialog-upda
 import { PrintSilabusComponent } from '../print-silabus/print-silabus.component';
 import { DialogUpdatePostingComponent } from '../dialog-update-posting/dialog-update-posting.component';
 import { CookieService } from 'ngx-cookie-service';
+import { DialogUploadComponent } from '../dialog-upload/dialog-upload.component';
 
 @Component({
   selector: 'app-detail-meeting',
@@ -28,10 +29,12 @@ export class DetailMeetingComponent implements OnInit {
   y! : number;
   no! : number;
 
-  Level  =  this.cookieService.get( 'level' );
+  Level  =  this.cookieService.get('Level');
+
   postingList: any =[];
   materiList: any =[];
   tugasList: any =[];
+  isActive = true;
 
   constructor(
     private dialog: MatDialog,
@@ -65,6 +68,11 @@ export class DetailMeetingComponent implements OnInit {
     this.postingService.getById(id).then(val =>{
       this.postingList=val
     })
+    if(this.postingList != null){
+        this.isActive = false
+    }else{
+        this.isActive = true
+    }
   }
 
   public readMateri(id: number){
@@ -151,6 +159,13 @@ export class DetailMeetingComponent implements OnInit {
     
     public updateTugas(data: any){
         const dialogRef = this.dialog.open(DialogUpdateTugasComponent, {data: data});
+        dialogRef.afterClosed().subscribe(()=>{
+          this.readTugas(this.y);
+        })
+    }
+
+    public addTugasPeserta(data: any){
+        const dialogRef = this.dialog.open(DialogUploadComponent, {data: data});
         dialogRef.afterClosed().subscribe(()=>{
           this.readTugas(this.y);
         })

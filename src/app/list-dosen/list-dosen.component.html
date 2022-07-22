@@ -6,6 +6,10 @@
         <i class="fa fa-plus-circle" aria-hidden="true"></i>
             Pengajar
     </button>
+    <button mat-raised-button matTooltip="Lihat riwayat penghapusan data dosen" style="margin-top: 20px; margin-left: 10px; background-color: #E0F2F1; font-size: small; width: fit-content;" (click)="restore()">
+        <i class="fa fa-history" aria-hidden="true"></i>
+            History
+    </button>
 </div>
 
 <table>
@@ -26,10 +30,10 @@
         <td style="text-align: center;">{{pengajar.no_hp}}</td>
         <td style="text-align: center;">{{pengajar.email}}</td>
         <td style="text-align: center;">
-            <!--<button mat-raised-button matTooltip="Edit data dosen" style="margin-left: 10px;" >
+            <button mat-raised-button matTooltip="Edit data dosen" style="margin-left: 10px;" (click)="update(pengajar)">
                 <i class="fa fa-edit" aria-hidden="true"></i>
-            </button>-->
-            <button mat-raised-button matTooltip="Hapus data dosen" style="margin-left: 10px;" >
+            </button>
+            <button mat-raised-button matTooltip="Hapus data dosen" style="margin-left: 10px;" (click)="delete(pengajar.id)">
                 <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
         </td>
@@ -54,10 +58,10 @@
         <td style="text-align: center;">{{peserta.no_hp}}</td>
         <td style="text-align: center;">{{peserta.email}}</td>
         <td style="text-align: center;">
-            <!--<button mat-raised-button matTooltip="Edit data dosen" style="margin-left: 10px;" >
+            <button mat-raised-button matTooltip="Edit data dosen" style="margin-left: 10px;"(click)="update(peserta)" >
                 <i class="fa fa-edit" aria-hidden="true"></i>
-            </button>-->
-            <button mat-raised-button matTooltip="Hapus data dosen" style="margin-left: 10px;" >
+            </button>
+            <button mat-raised-button matTooltip="Hapus data dosen" style="margin-left: 10px;" (click)="delete(peserta.id)">
                 <i class="fa fa-trash" aria-hidden="true"></i>
             </button>
         </td>

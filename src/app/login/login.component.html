@@ -29,7 +29,9 @@
                         </div>
                         <div class="input-box">
                             <i class="fas fa-lock"></i>
-                            <input type="password" placeholder="Masukkan password" required formControlName="password">
+                            <input [type]="changetype?'password':'text'" placeholder="Masukkan password" required formControlName="password">
+                            <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i>
+                            </span>
                         </div>
                         <div class="button input-box">
                             <input type="submit" value="Submit">
@@ -43,25 +45,35 @@
                 <form [formGroup]="regisForm" (ngSubmit)="registrasi()">
                     <div class="input-boxes">
                         <div class="input-box">
+                            <i class="fa fa-id-card"></i>
+                            <input type="text" placeholder="Nomor Induk Karyawan" required formControlName="nik">
+                        </div>
+                        <div class="input-box">
                             <i class="fas fa-user"></i>
                             <input type="text" placeholder="Nama Lengkap" required formControlName="nama">
                         </div>
-                    <div class="input-box">
-                        <i class="fas fa-user"></i>
-                        <input type="text" placeholder="Username" required formControlName="username">
-                    </div>
-                    <div class="input-box">
-                        <i class="fas fa-envelope"></i>
-                        <input type="text" placeholder="Masukkan email" required formControlName="email">
-                    </div>
-                    <div class="input-box">
-                        <i class="fas fa-lock"></i>
-                        <input type="password" placeholder="Masukkan password" required formControlName="password">
-                    </div>
-                    <div class="button input-box">
-                        <input type="submit" value="Submit">
-                    </div>
-                    <div class="text sign-up-text">Anda sudah terdaftar? <label for="flip">Silakan login!</label></div>
+                        <div class="input-box">
+                            <i class="fas fa-user"></i>
+                            <input type="text" placeholder="Username" required formControlName="username">
+                        </div>
+                        <div class="input-box">
+                            <i class="fa fa-address-book"></i>
+                            <input type="text" placeholder="No. Telepon" required formControlName="no_hp">
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-envelope"></i>
+                            <input type="text" placeholder="Masukkan email" required formControlName="email">
+                        </div>
+                        <div class="input-box">
+                            <i class="fas fa-lock"></i>
+                            <input [type]="changetype?'password':'text'" placeholder="Masukkan password" required formControlName="password">
+                            <span class="eyeicon" (click)="viewpass()"><i [ngClass]="visible?'fa fa-eye':'fa fa-eye-slash'"></i>
+                            </span>
+                        </div>
+                        <div class="button input-box">
+                            <input type="submit" value="Submit">
+                        </div>
+                        <div class="text sign-up-text">Anda sudah terdaftar? <label for="flip">Silakan login!</label></div>
                     </div>
                 </form>
             </div>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { CookieService } from 'ngx-cookie-service';
 import { NilaiService } from '../_services/nilai.service';
 
 @Component({
@@ -11,9 +12,11 @@ export class NilaiComponent implements OnInit {
 
   constructor(
     private nilaiService: NilaiService,
+    private cookieService: CookieService,
     private router: Router
   ) { }
 
+  Level  =  this.cookieService.get( 'Level' );
   dataNilai: any =[];
   rerata: any;
   statusNilai: any;
@@ -21,6 +24,7 @@ export class NilaiComponent implements OnInit {
   y! : number;
   no! : number;
   sub: any;
+  selectedDay: string = '';
 
   ngOnInit(): void {
     this.sub = this.router.routerState.snapshot.url;
@@ -31,8 +35,12 @@ export class NilaiComponent implements OnInit {
     this.readNilai(this.y)
   }
 
+  selectChangeHandler (event: any) {
+    this.selectedDay = event.target.value;
+  }
+  
   public readNilai(id:number){
-    this.nilaiService.getId(id).then(val =>{
+    this.nilaiService.getAll(id).then(val =>{
       var total = 0
       var counter = 0
       var status =0
@@ -43,7 +51,7 @@ export class NilaiComponent implements OnInit {
         counter += 1
         status = parseInt(i.nilai)
         if(status >= 70){
-            statusNilai.push(",LULUS")
+            statusNilai.push("LULUS")
         }
         else{
             statusNilai.push("TiDAK LULUS")

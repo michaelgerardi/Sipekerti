@@ -1,25 +1,30 @@
 <form [formGroup]="pengajarForm" (ngSubmit)="registrasi()">
     <h2 mat-dialog-title style="text-align: center;">Tambah Pengajar</h2>
-    <mat-dialog-content class="mat-typography" style="width: 400px;">
-      <mat-label>Nama Lengkap</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 40px;">
-        <input matInput type="text" formControlName="nama" placeholder="beserta gelar">
-      </mat-form-field>
-      <br>
-      <mat-label>Username</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 70px;">
-        <input matInput type="text" formControlName="username" placeholder="minimal 3 karakter">
-      </mat-form-field>
-      <br>
-      <mat-label>Email</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 100px;">
-        <input matInput type="text" formControlName="email">
-      </mat-form-field>
-      <br>
-      <mat-label>Password</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 73px;">
-        <input matInput type="text" formControlName="password" placeholder="minimal 6 karakter">
-      </mat-form-field>
+    <mat-dialog-content class="mat-typography" style="width: 450px;">
+        <mat-label>Nomor Induk Karyawan</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 40px;">
+          <input matInput type="text" formControlName="nik">
+        </mat-form-field>
+        <br>
+        <mat-label>Nama Lengkap</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 90px;">
+            <input matInput type="text" formControlName="nama" placeholder="beserta gelar">
+        </mat-form-field>
+        <br>
+        <mat-label>Username</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 120px;">
+            <input matInput type="text" formControlName="username" placeholder="minimal 3 karakter">
+        </mat-form-field>
+        <br>
+        <mat-label>Email</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 150px;">
+            <input matInput type="text" formControlName="email">
+        </mat-form-field>
+        <br>
+        <mat-label>Password</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 120px;">
+            <input matInput type="text" formControlName="password" placeholder="minimal 6 karakter">
+        </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="center">
       <button mat-button mat-dialog-close>Batal</button>

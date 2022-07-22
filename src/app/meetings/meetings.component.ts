@@ -6,6 +6,8 @@ import { DialogAddMeetingComponent } from '../dialog-add-meeting/dialog-add-meet
 import { PertemuanService } from '../_services/pertemuan.service';
 import { DialogUpdateMeetingComponent } from '../dialog-update-meeting/dialog-update-meeting.component';
 import { CookieService } from 'ngx-cookie-service';
+import { HttpClient } from '@angular/common/http';
+import { DialogRestorePertemuanComponent } from '../dialog-restore-pertemuan/dialog-restore-pertemuan.component';
 
 @Component({
   selector: 'app-meetings',
@@ -15,15 +17,17 @@ import { CookieService } from 'ngx-cookie-service';
 export class MeetingsComponent implements OnInit {
 
     pertemuanList: any =[];
+    pertemuanPengajar: any =[];
     sub: any;
     y! : number;
-    Level  =  this.cookieService.get( 'level' );
+    Level  =  this.cookieService.get( 'Level' );
 
     constructor(
       private router: Router,
       private dialog: MatDialog,
       private pertemuanService: PertemuanService,
-      private cookieService: CookieService
+      private cookieService: CookieService,
+      private http:HttpClient
     ) { }
 
   ngOnInit(): void {
@@ -36,8 +40,24 @@ export class MeetingsComponent implements OnInit {
    //  console.log(y);
     
     this.readMeeting(this.y);
+    //this.meetingPengajar(this.y);
   }
 
+  selectedFile: File| any= null;
+
+  onFileSelected(event:any){
+   this.selectedFile= <File>event.target.files[0];
+
+  }
+
+  onUpload(){
+    const fd = new FormData();
+    fd.append('image',this.selectedFile,this.selectedFile.name)
+    this.http.post('http://localhost:8080/assets/uploads',fd)
+    .subscribe(res =>{
+      console.log(res);
+    });
+  }
   public detail(id: number){
     this.router.navigate(['/detail-meeting',id])
   }
@@ -52,6 +72,13 @@ export class MeetingsComponent implements OnInit {
        console.log(val);
      })
   }
+
+//  public meetingPengajar(id: number){
+//    this.pertemuanService.getByIdPengajar(id).then(val => {
+//        this.pertemuanPengajar = val
+//        console.log(val); 
+//    })
+//  }
 
   public create(){
     const dialogRef = this.dialog.open(DialogAddMeetingComponent);
@@ -92,10 +119,10 @@ export class MeetingsComponent implements OnInit {
     })
   }
 
-//  public print(id:number){
-//    const dialogRef = this.dialog.open(PrintSilabusComponent, {data: id});
-//    dialogRef.afterClosed().subscribe(()=>{
-//        this.readMeeting(this.y);
-//    })
-//  }
+  public restore(){
+    const dialogRef = this.dialog.open(DialogRestorePertemuanComponent);
+    dialogRef.afterClosed().subscribe(()=>{
+    this.readMeeting(this.y);
+    })
+}
 }

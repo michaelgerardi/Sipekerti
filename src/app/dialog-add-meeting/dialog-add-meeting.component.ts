@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { PertemuanService } from '../_services/pertemuan.service';
 import Swal from 'sweetalert2';
 import { UserService } from '../_services/user.service';
@@ -17,17 +17,16 @@ export class DialogAddMeetingComponent implements OnInit {
     private fb : FormBuilder,
     private pertemuanService : PertemuanService,
     private userService: UserService,
-    private kelasService: KelasService,
-    private http: HttpClient
+    private kelasService: KelasService
   ) { 
     this.listPengajar(),
     this.listKelas()
   }
 
-  daftarPengajar: any = [];
-  daftarKelas: any = [];
-  pengajarModel = "";
-  kelasModel = "";
+  daftarPengajar: any ;
+  daftarKelas: any;
+//  pengajarModel = "";
+//  kelasModel = "";
   selectPengajar :any;
   selectKelas: any
 
@@ -42,6 +41,8 @@ export class DialogAddMeetingComponent implements OnInit {
   }
   ngOnInit(): void {
     //this.pengajarList;
+    //this.listKelas(),
+    //this.listPengajar()
   }
 
   pertemuanForm = this.fb.group({
@@ -63,7 +64,10 @@ export class DialogAddMeetingComponent implements OnInit {
   })
 
   createPertemuan(){
+    console.log(this.pertemuanForm.value);
     this.pertemuanService.insert(this.pertemuanForm.value).subscribe(val=>{
+       
+        
       Swal.fire({
         icon: 'success',
         title: 'Data tersimpan!',

@@ -2,21 +2,26 @@
     <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Nilai Pertemuan</h1>
 </div>
   
-<div >
-    <!--<h3 style="margin-top: 20px; font-weight: 500; margin-left: 50px;">{{nilai.id_tugas}}</h3>-->
+<div *ngIf="Level == '1' || Level == '2'; else peserta">
     <table >
       <tr style="text-align: center;">
         <th style="width: 8%">No</th>
-        <th style="width: 50%">Nama Peserta</th>
-        <th>Nilai</th>
-        <th>Status</th>
+        <th style="width: 30%">Nama Peserta</th>
+        <th style="width: 10%">Nilai</th>
+        <th style="width: 15%">Status</th>
+        <th style="width: 10%">Aktifitas</th>
       </tr>
     
       <tr *ngFor="let nilai of dataNilai; let i = index">
         <td style="text-align: center;">{{i+1}}</td>
-        <td>{{nilai.id_peserta}}</td>
+        <td>{{nilai.nama}}</td>
         <td style="text-align: center;">{{nilai.nilai}}</td>
-        <td></td>
+        <td style="text-align: center;">{{nilai.status}}</td>
+        <td style="text-align: center;">
+            <button mat-raised-button matTooltip="Edit Nilai" style="margin-left: 10px;">
+                <i class="fa fa-edit" aria-hidden="true"></i>
+            </button>
+        </td>
       </tr>
       
       <tr>
@@ -26,3 +31,26 @@
       </tr>
     </table>
 </div>
+<ng-template #peserta>
+    <table >
+        <tr style="text-align: center;">
+          <th style="width: 8%">No</th>
+          <th style="width: 30%">Nama Peserta</th>
+          <th style="width: 10%">Nilai</th>
+          <th style="width: 15%">Status</th>
+        </tr>
+      
+        <tr *ngFor="let nilai of dataNilai; let i = index">
+          <td style="text-align: center;">{{i+1}}</td>
+          <td>{{nilai.nama}}</td>
+          <td style="text-align: center;">{{nilai.nilai}}</td>
+          <td style="text-align: center;">{{nilai.status}}</td>
+        </tr>
+        
+        <tr>
+          <td colspan="2">Rata - rata</td>
+          <td style="text-align: center;">{{rerata}}</td>
+          <td></td>
+        </tr>
+      </table>
+</ng-template>

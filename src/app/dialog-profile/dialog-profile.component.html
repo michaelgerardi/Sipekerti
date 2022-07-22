@@ -1,40 +1,38 @@
 <form [formGroup]="profilForm" (ngSubmit)="save()">
-    <h2 mat-dialog-title style="text-align: center;">Edit Data Pengguna</h2>
-    <mat-dialog-content class="mat-typography"  >
-      <mat-label>Nomor Induk Karyawan</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left:53px;"> 
-        <input matInput type="text" formControlName="nik">
-      </mat-form-field>
-      <br>
-      <mat-label>Nama Lengkap</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left:103px;"> 
-        <input matInput type="text" formControlName="nama">
-      </mat-form-field>
-      <br>
-      <mat-label>Gender</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 150px;">
-        <input matInput type="text" formControlName="gender">
-      </mat-form-field>
-      <br>
-      <mat-label>Tanggal Lahir</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 110px; width: 180px;">
-        <input matInput [matDatepicker]="picker1" formControlName="tanggal_lahir">
-        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
-        <mat-datepicker #picker1></mat-datepicker>
-      </mat-form-field>
-      <br>
-      <mat-label>Alamat</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 150px;">
-        <textarea matInput type="text" formControlName="alamat"></textarea>
-      </mat-form-field>
-      <br>
-      <mat-label>No. Telepon</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left:120px;"> 
-        <input matInput type="text" formControlName="telepon">
-      </mat-form-field>
+    <h2 mat-dialog-title style="text-align: center;">Form Update Data Dosen</h2>
+    <mat-dialog-content class="mat-typography" style="width: 450px;">
+        <mat-label>Nomor Induk Karyawan</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 40px;">
+          <input matInput type="text" formControlName="nik">
+        </mat-form-field>
+        <br>
+        <mat-label>Nama Lengkap</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 90px;">
+            <input matInput type="text" formControlName="nama" placeholder="beserta gelar">
+        </mat-form-field>
+        <br>
+        <mat-label>Telepon</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 133px;">
+            <input matInput type="text" formControlName="no_hp" placeholder="">
+        </mat-form-field>
+        <br>
+        <mat-label>Username</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 120px;">
+            <input matInput type="text" formControlName="username" placeholder="minimal 3 karakter">
+        </mat-form-field>
+        <br>
+        <mat-label>Email</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 150px;">
+            <input matInput type="text" formControlName="email">
+        </mat-form-field>
+        <br>
+        <mat-label>Password</mat-label>
+        <mat-form-field appearance="legacy" style="margin-left: 120px;">
+            <input matInput type="text" formControlName="password" placeholder="minimal 6 karakter">
+        </mat-form-field>
     </mat-dialog-content>
     <mat-dialog-actions align="center">
       <button mat-button mat-dialog-close>Batal</button>
-      <button mat-button  type="submit">Simpan</button>
+      <button mat-button [mat-dialog-close] type="submit">Simpan</button>
     </mat-dialog-actions>
 </form>

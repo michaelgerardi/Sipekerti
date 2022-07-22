@@ -22,6 +22,14 @@ export class KelasService{
       return this.http.delete(this.BASE_URL+ 'kelas/' +id);
     }
 
+    public history(){
+        return this.http.get(this.BASE_URL + 'historyKelas').toPromise().then(res => res as Kelas[])
+    }
+
+    public restore(id: any){
+        return this.http.get(this.BASE_URL + 'restore/' + id).toPromise().then(res => res as Kelas[]);
+    }
+
     update( id: number, data: any ) {
       return this.http.put( this.BASE_URL + 'kelas/' + id, JSON.stringify(data) );
     }

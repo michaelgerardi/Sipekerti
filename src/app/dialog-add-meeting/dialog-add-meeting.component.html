@@ -1,10 +1,10 @@
 <form [formGroup]="pertemuanForm" (ngSubmit)="createPertemuan()">
     <h2 mat-dialog-title style="text-align: center;">Form Pertemuan Baru</h2>
-    <mat-dialog-content class="mat-typography" style="width: 480px;">     
+    <mat-divider style="margin-bottom: 20px;"></mat-divider>
+    <mat-dialog-content class="mat-typography" style="width: 510px;">     
         <mat-label>Kelas</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 172px;">
-            <!--<input matInput type="text" formControlName="id_kelas">-->
-            <mat-select class="custom-select" name="id_kelas" [(ngModel)]="kelasModel" required (change)="ChangeKelas($event)">
+        <mat-form-field appearance="outline" style="margin-left: 172px; width: 230px;">
+            <mat-select class="custom-select" formControlName="id_kelas" required (change)="ChangeKelas($event)">
                 <mat-option *ngFor="let kelas of daftarKelas" [value]="kelas.id">
                 {{kelas.nama_kelas}}
                 </mat-option>
@@ -12,8 +12,8 @@
         </mat-form-field>
         <br>
         <mat-label>Pilih Pengajar</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 120px;">
-            <mat-select class="custom-select" name="id_pengajar" [(ngModel)]="pengajarModel" required (change)="ChangePengajar($event)">
+        <mat-form-field appearance="outline" style="margin-left: 120px; width: 230px;">
+            <mat-select class="custom-select" formControlName="id_pengajar" required (change)="ChangePengajar($event)">
                 <mat-option *ngFor="let pengajar of daftarPengajar" [value]="pengajar.id">
                 {{pengajar.nama}}
                 </mat-option>
@@ -21,59 +21,59 @@
         </mat-form-field>
         <br>
         <mat-label>Nama Pertemuan</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 97px;">
-            <input matInput type="text" formControlName="nama_pertemuan">
+        <mat-form-field appearance="outline" style="margin-left: 97px; width: 230px;">
+            <textarea matInput type="text" formControlName="nama_pertemuan" style="height: 50px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Tanggal Pertemuan</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 85px;">
+        <mat-form-field appearance="outline" style="margin-left: 85px; width: 150px;">
             <input matInput [matDatepicker]="picker1" formControlName="tanggal_pertemuan">
             <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
             <mat-datepicker #picker1></mat-datepicker>
         </mat-form-field>
         <br>
         <mat-label>Deskripsi</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 150px;">
-            <input matInput type="text" formControlName="deskripsi_pertemuan">
+        <mat-form-field appearance="outline" style="margin-left: 150px; width: 230px;">
+            <textarea matInput type="text" formControlName="deskripsi_pertemuan" style="height: 100px; "></textarea>
         </mat-form-field>
         <br>
         <mat-label>Tempat</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 160px;">
+        <mat-form-field appearance="outline" style="margin-left: 160px; width: 230px;">
             <input matInput type="text" formControlName="tempat">
         </mat-form-field>
         <br>
         <mat-label>Sub Capai</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 145px;">
-            <input matInput type="text" formControlName="sub_cp">
+        <mat-form-field appearance="outline" style="margin-left: 145px; width: 230px;">
+            <textarea matInput type="text" formControlName="sub_cp" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Materi</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 168px;">
-            <input matInput type="text" formControlName="materi">
+        <mat-form-field appearance="outline" style="margin-left: 168px; width: 230px;">
+            <textarea matInput type="text" formControlName="materi" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Indikator</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 152px;">
-            <input matInput type="text" formControlName="indikator">
+        <mat-form-field appearance="outline" style="margin-left: 152px; width: 230px;">
+            <textarea matInput type="text" formControlName="indikator" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Metode Penilaian</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 100px;">
-            <input matInput type="text" formControlName="metode_penilaian">
+        <mat-form-field appearance="outline" style="margin-left: 100px; width: 230px;">
+            <textarea matInput type="text" formControlName="metode_penilaian" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Metode Pembelajaran</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 72px;">
-            <input matInput type="text" formControlName="metode_pembelajaran">
+        <mat-form-field appearance="outline" style="margin-left: 72px; width: 230px;">
+            <textarea matInput type="text" formControlName="metode_pembelajaran" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Pustaka</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 158px;">
-            <input matInput type="text" formControlName="pustaka">
+        <mat-form-field appearance="outline" style="margin-left: 158px; width: 230px;">
+            <textarea matInput type="text" formControlName="pustaka" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Bobot</mat-label>
-        <mat-form-field appearance="legacy" style="margin-left: 171px;">
+        <mat-form-field appearance="outline" style="margin-left: 171px; width: 100px;">
             <input matInput type="text" formControlName="bobot">
         </mat-form-field>
         <br>

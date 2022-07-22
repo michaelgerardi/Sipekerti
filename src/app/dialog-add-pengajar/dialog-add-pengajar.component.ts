@@ -20,6 +20,7 @@ export class DialogAddPengajarComponent implements OnInit {
 
   pengajarForm = this.fb.group({
     id: [''],
+    nik:['', Validators.required],
     nama:['', Validators.required],
     username: ['', Validators.required],
     email:['', Validators.required],

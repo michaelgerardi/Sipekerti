@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, NgForm, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UserService } from '../_services/user.service';
@@ -11,6 +11,13 @@ import { CookieService } from 'ngx-cookie-service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
+  visible:boolean = true;
+  changetype:boolean =true;
+
+  viewpass(){
+    this.visible = !this.visible;
+    this.changetype = !this.changetype;
+  }
 
   constructor(
     private fb: FormBuilder,
@@ -21,6 +28,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {
     //this.login()
+
   }
 
   loginForm = this.fb.group({
@@ -32,6 +40,8 @@ export class LoginComponent implements OnInit {
 
   regisForm = this.fb.group({
     id: [''],
+    nik: ['', Validators.required],
+    no_hp: ['', Validators.required],
     nama:['', Validators.required],
     username: ['', Validators.required],
     email:['', Validators.required],
@@ -39,7 +49,7 @@ export class LoginComponent implements OnInit {
   })
 
   login(){
-  
+    //this.reloadCurrentPage();
     this.userService.login(this.loginForm.value).subscribe(val => {
       
     //   Swal.fire({
@@ -50,12 +60,6 @@ export class LoginComponent implements OnInit {
     //   });
     //var newData = JSON.stringify(val);
 
-    //this.cookieService.delete('Level');
-    //this.cookieService.delete( 'username' );
-    //this.cookieService.delete( 'nama');
-    //this.cookieService.delete( 'email');
-    //this.cookieService.delete( 'no_hp');
-    //this.cookieService.delete( 'nik' );
     var parsed = JSON.parse(JSON.stringify(val));
  
     this.cookieService.set( 'Level', parsed.level );

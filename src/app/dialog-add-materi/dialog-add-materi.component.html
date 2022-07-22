@@ -1,8 +1,9 @@
 <form [formGroup]="materiForm" (ngSubmit)="create()">
     <h2 mat-dialog-title style="text-align: center;">Form Materi Baru</h2>
-    <mat-dialog-content class="mat-typography" style="width: 400px;">
-      <mat-label style="margin-left: 20px;">Pertemuan</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 48px;">
+    <mat-divider style="margin-bottom: 20px;"></mat-divider>
+    <mat-dialog-content class="mat-typography" style="width: 450px;">
+      <mat-label >Pertemuan</mat-label>
+      <mat-form-field appearance="outline" style="margin-left: 48px; width: 280px;">
         <!--<input matInput type="text" formControlName="id_pertemuan">-->
         <mat-select class="custom-select" name="id_pertemuan" [(ngModel)]="pertemuanModel" required (change)="ChangePertemuan($event)">
             <mat-option *ngFor="let pertemuan of daftarPertemuan" [value]="pertemuan.id">
@@ -11,8 +12,8 @@
         </mat-select>
       </mat-form-field>
       <br>
-      <mat-label style="margin-left: 20px;">Judul</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 83px;">
+      <mat-label >Judul</mat-label>
+      <mat-form-field appearance="outline" style="margin-left: 83px; width: 280px;">
         <textarea matInput type="text" formControlName="judul" style="height: 40px;"></textarea>
       </mat-form-field>
       <br>
