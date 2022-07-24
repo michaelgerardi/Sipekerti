@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { UserService } from '../_services/user.service';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -23,7 +24,8 @@ export class LoginComponent implements OnInit {
     private fb: FormBuilder,
     private userService: UserService,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private authService : AuthService
   ) { }
 
   ngOnInit(): void {
@@ -61,7 +63,7 @@ export class LoginComponent implements OnInit {
     //var newData = JSON.stringify(val);
 
     var parsed = JSON.parse(JSON.stringify(val));
- 
+    this.authService.username.next(parsed.username);
     this.cookieService.set( 'Level', parsed.level );
     this.cookieService.set( 'username', parsed.username );
     this.cookieService.set( 'nama', parsed.nama );

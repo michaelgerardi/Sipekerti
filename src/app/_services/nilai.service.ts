@@ -9,6 +9,9 @@ export class NilaiService{
     private BASE_URL: string='http://localhost:8080/';
     constructor( private http: HttpClient){}
 
+    getNilai(){
+        return this.http.get(this.BASE_URL + 'nilai').toPromise().then(res => res as Nilai[]);
+    }
     getAll(id: number){
         return this.http.get(this.BASE_URL + 'getnilai/'+id).toPromise().then(res => res as Nilai[]);
     }

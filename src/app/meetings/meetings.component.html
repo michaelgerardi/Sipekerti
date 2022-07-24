@@ -1,5 +1,8 @@
-<div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0">
-    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Pertemuan</h1>
+<div style="background-color: #E0F2F1; height: 75px; width:100%; padding: 0;">
+    <div style="background-color: #4FC3F7; height: 50px; width:100%; padding: 0;">
+        <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Kelas</h1>
+    </div>
+    <h5 style="margin-left: 40px;font-weight: 500; margin-top: 2px;">Daftar Kelas > Daftar Pertemuan</h5>
 </div>
 <div *ngIf="Level == '1'; else dosen">
     <div style="margin-left: 40px;">
@@ -18,12 +21,12 @@
                 <img src="http://localhost:8080/assets/uploads/{{pertemuan.upload_image}}" style="width: 265px;" (click)="detail(pertemuan.id)">
             </div>
             <h2 style="margin-left: 5px; font-size: medium;line-height: 1.5rem; text-align: justify;">{{pertemuan.nama_pertemuan}}</h2>
-            <p style="margin-left: 5px;">Pengajar : {{pertemuan.id_pertemuan}}</p>
+            <p style="margin-left: 5px;">Pengajar : {{pertemuan.nama}}</p>
             <p style="margin-left: 5px;">Pelaksanaan : {{pertemuan.tanggal_pertemuan.split("-").reverse().join("-")}}</p>
             <p style="text-align:justify;margin-left: 5px; margin-top: -5px;">Zoom Link  : https://meet.google.com/?hs=197&pli=1&authuser=0</p>
             <div style="margin-bottom: 15px; margin-left: 4%;">
-                <button mat-mini-fab matTooltip="Lihat silabus pertemuan">
-                    <i class="fa fa-print" aria-hidden="true" (click)="print(pertemuan.id)"></i>
+                <button mat-mini-fab matTooltip="Lihat silabus pertemuan" (click)="print(pertemuan.id)">
+                    <i class="fa fa-print" aria-hidden="true" ></i>
                 </button>
                 <button mat-mini-fab style="margin-left: 50%; margin-right: 5px;">
                     <i class="fa fa-trash" aria-hidden="true" (click)="delete(pertemuan.id)"></i>
@@ -36,7 +39,7 @@
     </div>
 </div>
 <ng-template #dosen>
-    <div style="margin-left: 20px;" >
+    <div style="margin-left: 20px; margin-top: -20px;" >
         <div class="column" *ngFor="let pertemuan of pertemuanList" style="margin-left: 20px;" matTooltip="Tekan gambar untuk lihat detail pertemuan">
             <div>
                 <img src="http://localhost:8080/assets/uploads/{{pertemuan.upload_image}}" style="width: 265px;" (click)="detail(pertemuan.id)">

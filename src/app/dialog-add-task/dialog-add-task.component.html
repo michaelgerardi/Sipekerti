@@ -4,7 +4,7 @@
     <mat-dialog-content class="mat-typography" style="width: 450px;">
       <mat-label>Pertemuan</mat-label>
       <mat-form-field appearance="outline" style="margin-left: 56px; width: 270px;">
-        <mat-select class="custom-select" name="id_pertemuan" [(ngModel)]="pertemuanModel" required (change)="ChangePertemuan($event)">
+        <mat-select class="custom-select" formControlName="id_pertemuan" required (change)="ChangePertemuan($event)">
             <mat-option *ngFor="let pertemuan of daftarPertemuan" [value]="pertemuan.id">
             {{pertemuan.nama_pertemuan}}
             </mat-option>
@@ -17,17 +17,15 @@
       </mat-form-field>
       <br>
       <mat-label>Dokumen</mat-label>
-      <mat-form-field appearance="outline" style="margin-left: 66px;">
-        <input matInput type="text" formControlName="dokumen">
-      </mat-form-field>
+        <input type="file" class="form-control" (change)="onFileSelected($event)" style="margin-left: 160px;">
       <br>
-      <mat-label>Tanggal Mulai</mat-label>
+      <!--<mat-label>Tanggal Mulai</mat-label>
       <mat-form-field appearance="outline" style="margin-left: 39px; width: 150px;">
         <input matInput [matDatepicker]="picker2" formControlName="tanggal_mulai">
         <mat-datepicker-toggle matSuffix [for]="picker2"></mat-datepicker-toggle>
         <mat-datepicker #picker2></mat-datepicker>
       </mat-form-field> 
-      <br>
+      <br>-->
       <mat-label>Tanggal Selesai</mat-label>
       <mat-form-field appearance="outline" style="margin-left: 30px; width: 150px;">
         <input matInput [matDatepicker]="picker2" formControlName="tanggal_selesai">

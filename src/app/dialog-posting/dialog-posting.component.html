@@ -4,31 +4,29 @@
     <mat-dialog-content class="mat-typography" style="width: 700px; height:400px">
         <mat-label>Pertemuan</mat-label>
         <mat-form-field appearance="outline" style="margin-left:70px; width: 400px;"> 
-            <mat-select class="custom-select" name="id_pertemuan" [(ngModel)]="pertemuanModel" required (change)="ChangePertemuan($event)">
+            <mat-select class="custom-select" formControlName="id_pertemuan" required (change)="ChangePertemuan($event)">
                 <mat-option *ngFor="let pertemuan of daftarPertemuan" [value]="pertemuan.id">
                 {{pertemuan.nama_pertemuan}}
                 </mat-option>
             </mat-select>
         </mat-form-field>
         <br>
-        <mat-label>Peserta</mat-label>
-        <mat-form-field appearance="outline" style="margin-left:90px;"> 
-            <input matInput type="text" formControlName="id_peserta">
+        <mat-label>Pilih Pengajar</mat-label>
+        <mat-form-field appearance="outline" style="margin-left: 120px; width: 270px;">
+            <mat-select class="custom-select" formControlName="id_pengajar" required (change)="ChangePengajar($event)">
+                <mat-option *ngFor="let pengajar of daftarPengajar" [value]="pengajar.id">
+                {{pengajar.nama}}
+                </mat-option>
+            </mat-select>
         </mat-form-field>
         <br>
         <mat-label>Catatan Peserta</mat-label>
         <mat-form-field appearance="outline" style="width: 630px; "> 
             <textarea matInput type="text" placeholder="Tulis disini ...." formControlName="catatan" style="height: 400px;"></textarea>
         </mat-form-field>
-        <br>
-        <mat-label>Catatan Pengajar</mat-label>
-        <mat-form-field appearance="outline" style="width: 630px; "> 
-            <textarea matInput type="text" placeholder="Tulis disini ...." formControlName="komentar" style="height: 400px;"></textarea>
-        </mat-form-field>
-        <br>
     </mat-dialog-content>
     <mat-dialog-actions align="center">
       <button mat-button mat-dialog-close>Batal</button>
       <button mat-button [mat-dialog-close] [disabled]="!postingForm.valid" type="submit">Simpan</button>
     </mat-dialog-actions>
-  </form>
+</form>

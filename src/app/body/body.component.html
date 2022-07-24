@@ -1,13 +1,16 @@
-<div class="scroll" style="background-color: #f4f7f4;">
+<div class="scroll" style="background-color: #f4f7f4;" *ngIf="username">
     <div class="row" style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0;">
         <div class="body" [ngClass]="getBodyClass()">
             <router-outlet></router-outlet>
         </div>
         <div class="dropdown" style="margin-left: 92%;" >
-            <button class="dropbtn" style="font-weight:bold; border-radius: 10px; margin-top:4px">{{username}}</button>
+            <button class="dropbtn" style="font-weight:bold; border-radius: 10px; margin-top:4px; font-size: small;">
+                <i class="fa fa-user-circle" aria-hidden="true"></i>
+                {{username}}
+            </button>
             <div class="dropdown-content" style="font-weight:500;">
-                <button mat-button (click)="update()">
-                    <i class="fa fa-user-circle" aria-hidden="true" style="margin-right:10px" ></i>
+                <button mat-button (click)="update()" style=" width: 20px">
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
                     Profil
                 </button>
             </div>

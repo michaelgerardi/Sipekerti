@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter, HostListener } from '@angular/
 import { animate, style, transition, trigger } from '@angular/animations';
 import { navbarData } from './nav-data';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../_services/auth.service';
 
 interface SideNavToggle{
   screenWidth: number;
@@ -32,7 +33,8 @@ interface SideNavToggle{
 export class SidenavComponent implements OnInit {
 
   constructor(
-    public cookieService: CookieService
+    public cookieService: CookieService,
+    private authService: AuthService
   ) { }
   
 
@@ -47,7 +49,12 @@ export class SidenavComponent implements OnInit {
 
   ngOnInit(): void {
     this.screenWidth = window.innerWidth;
+    this.authService.username.subscribe(data =>{
+        this.username = data   
+       })
   }
+
+  username:string | null  =  null;
 
   @Output() onToggleSideNav: EventEmitter<SideNavToggle> = new EventEmitter();
   collapsed = false;

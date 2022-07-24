@@ -1,9 +1,12 @@
-<div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0;">
-    <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Kelas</h1>
+<div style="background-color: #E0F2F1; height: 75px; width:100%; padding: 0;">
+    <div style="background-color: #4FC3F7; height: 50px; width:100%; padding: 0;">
+        <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Daftar Kelas</h1>
+    </div>
+    <!--<h5 style="margin-left: 40px;font-weight: 500; margin-top: 2px;">Daftar Kelas</h5>-->
 </div>
-
+<div>
 <div *ngIf="Level == '1'; else dosen">
-    <div style="margin-left: 40px">
+    <div style="margin-left: 40px;">
         <button mat-raised-button style="margin-top: 20px; background-color: #E0F2F1; font-size: small; width: fit-content;" (click)="create()">
             <i class="fa fa-plus-circle" aria-hidden="true"></i>
                 Tambah

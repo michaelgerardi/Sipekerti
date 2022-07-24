@@ -10,7 +10,7 @@ export class PostingService{
     constructor(private http: HttpClient) { }
 
     getById(id: number){
-        return this.http.get(this.BASE_URL + 'posting/' + id).toPromise().then(res => res as Posting[]);
+        return this.http.get(this.BASE_URL + 'namaPertemuan/' + id).toPromise().then(res => res as Posting[]);
     }
 
     getAll(){

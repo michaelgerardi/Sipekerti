@@ -20,7 +20,6 @@ export class DialogAddMateriComponent implements OnInit {
   }
 
   daftarPertemuan: any = [];
-  pertemuanModel = "";
   selectPertemuan: any;
 
   ChangePertemuan(e: any){
@@ -41,11 +40,26 @@ export class DialogAddMateriComponent implements OnInit {
 
   materiForm = this.fb.group({
     id: [''],
+    id_pertemuan:['', Validators.required],
     judul: ['', Validators.required],
-    dokumen: ['', Validators.required]
+    //dokumen: ['', Validators.required]
   })
     
+  selectedFile: File| any= null;
+
+  onFileSelected(event:any){
+   this.selectedFile= <File>event.target.files[0];
+  }
+
   create(){
+    console.log(this.materiForm.value);
+    const form = this.materiForm.value;
+    form.dokumen = this.selectedFile;
+
+    const data = new FormData()
+    for (let key in form) {
+        data.append(key, form[key])
+    }
     this.materiService.insert(this.materiForm.value).subscribe(val => {
       Swal.fire({
         icon: 'success',

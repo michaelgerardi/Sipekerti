@@ -1,4 +1,4 @@
-<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''">
+<div class="sidenav" [ngClass]="collapsed ? 'sidenav-collapsed': ''" *ngIf="username">
     <div class="logo-container">
         <button class="logo" (click)="toggleCollapse()">SP</button>
         <div class="logo-text" @fadeInOut *ngIf="collapsed">SIPEKERTI</div>

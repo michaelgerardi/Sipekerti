@@ -4,8 +4,7 @@
     <mat-dialog-content class="mat-typography" style="width: 450px;">
       <mat-label >Pertemuan</mat-label>
       <mat-form-field appearance="outline" style="margin-left: 48px; width: 280px;">
-        <!--<input matInput type="text" formControlName="id_pertemuan">-->
-        <mat-select class="custom-select" name="id_pertemuan" [(ngModel)]="pertemuanModel" required (change)="ChangePertemuan($event)">
+        <mat-select class="custom-select"  formControlName="id_pertemuan" required (change)="ChangePertemuan($event)">
             <mat-option *ngFor="let pertemuan of daftarPertemuan" [value]="pertemuan.id">
             {{pertemuan.nama_pertemuan}}
             </mat-option>
@@ -17,13 +16,11 @@
         <textarea matInput type="text" formControlName="judul" style="height: 40px;"></textarea>
       </mat-form-field>
       <br>
-      <!--<mat-label>Dokumen</mat-label>
-      <mat-form-field appearance="legacy" style="margin-left: 66px;">
-        <input type="file" formControlName="dokumen">
-      </mat-form-field>-->
+      <mat-label>Dokumen</mat-label>
+        <input type="file" class="form-control" (change)="onFileSelected($event)" style="margin-left: 160px;">
     </mat-dialog-content>
     <mat-dialog-actions align="center">
       <button mat-button mat-dialog-close>Batal</button>
-      <button mat-button [mat-dialog-close] [disabled]="!materiForm.valid" type="submit">Simpan</button>
+      <button mat-button [mat-dialog-close] [disabled]="!materiForm.valid || !selectedFile" type="submit">Simpan</button>
     </mat-dialog-actions>
   </form>

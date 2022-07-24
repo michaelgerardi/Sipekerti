@@ -1,7 +1,7 @@
 export class Pertemuan{
     id! : number;
     id_kelas! : number;
-    id_pengajar!: number;
+    nama!: string;
     nama_pertemuan! : string;
     tanggal_pertemuan! : Date;
     deskripsi_pertemuan! : string;

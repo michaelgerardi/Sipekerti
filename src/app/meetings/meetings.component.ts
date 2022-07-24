@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog} from '@angular/material/dialog';
-import { Router } from '@angular/router';
+import { NavigationExtras, Router } from '@angular/router';
 import Swal from 'sweetalert2';
 import { DialogAddMeetingComponent } from '../dialog-add-meeting/dialog-add-meeting.component';
 import { PertemuanService } from '../_services/pertemuan.service';
@@ -28,9 +28,15 @@ export class MeetingsComponent implements OnInit {
       private pertemuanService: PertemuanService,
       private cookieService: CookieService,
       private http:HttpClient
-    ) { }
+    ) { 
+    //    this.sub = this.router.routerState.snapshot.url;
+    //console.log(this.sub);
+    //var splitted = this.sub.split("/", 3); 
+    //this.y = +splitted[2];
+    }
 
   ngOnInit(): void {
+    
     //get Id Kelas
     this.sub = this.router.routerState.snapshot.url;
     console.log(this.sub);
@@ -49,21 +55,17 @@ export class MeetingsComponent implements OnInit {
    this.selectedFile= <File>event.target.files[0];
 
   }
-
-  onUpload(){
-    const fd = new FormData();
-    fd.append('image',this.selectedFile,this.selectedFile.name)
-    this.http.post('http://localhost:8080/assets/uploads',fd)
-    .subscribe(res =>{
-      console.log(res);
-    });
-  }
+  
   public detail(id: number){
     this.router.navigate(['/detail-meeting',id])
   }
 
   public print(id: number){
     this.router.navigate(['/download-silabus',id])
+  }
+
+  public test (){
+    this.router.navigate(['/files'])
   }
 
   public readMeeting(id: number){

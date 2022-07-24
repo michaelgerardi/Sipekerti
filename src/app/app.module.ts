@@ -35,11 +35,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { DocumentComponent } from './document/document.component';
 import { DialogPostingComponent } from './dialog-posting/dialog-posting.component';
 import { DialogAddMeetingComponent } from './dialog-add-meeting/dialog-add-meeting.component';
-import { TasksPengajarComponent } from './tasks-pengajar/tasks-pengajar.component';
-import { TasksPesertaComponent } from './tasks-peserta/tasks-peserta.component';
 import { ArchiveComponent } from './archive/archive.component';
-import { ArchivePengajarComponent } from './archive-pengajar/archive-pengajar.component';
-import { ArchivePesertaComponent } from './archive-peserta/archive-peserta.component';
 import { DialogAddMateriComponent } from './dialog-add-materi/dialog-add-materi.component';
 import { DialogAddTaskComponent } from './dialog-add-task/dialog-add-task.component';
 import { DialogUpdateClassComponent } from './dialog-update-class/dialog-update-class.component';
@@ -75,11 +71,7 @@ import { DialogAddNilaiComponent } from './dialog-add-nilai/dialog-add-nilai.com
     DocumentComponent,
     DialogPostingComponent,
     DialogAddMeetingComponent,
-    TasksPengajarComponent,
-    TasksPesertaComponent,
     ArchiveComponent,
-    ArchivePengajarComponent,
-    ArchivePesertaComponent,
     DialogAddMateriComponent,
     DialogAddTaskComponent,
     DialogUpdateClassComponent,

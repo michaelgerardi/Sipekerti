@@ -3,6 +3,8 @@ import { FormBuilder, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PertemuanService } from '../_services/pertemuan.service';
 import Swal from 'sweetalert2';
+import { UserService } from '../_services/user.service';
+import { KelasService } from '../_services/kelas.service';
 
 @Component({
   selector: 'app-dialog-update-meeting',
@@ -14,9 +16,35 @@ export class DialogUpdateMeetingComponent implements OnInit {
     constructor(
         private fb: FormBuilder,
         private pertemuanService: PertemuanService,
+        private userService: UserService,
+        private kelasService: KelasService,
         @Inject(MAT_DIALOG_DATA) public datacross: any
-      ) { }
+    ) { 
+        this.listPengajar(),
+        this.listKelas()
+    }
     
+    daftarPengajar: any ;
+    daftarKelas: any;
+    selectPengajar :any;
+    selectKelas: any
+    
+    ChangePengajar(e: any){
+        console.log(e.target.value);
+        this.selectPengajar = e.target.value;
+    }
+    
+    ChangeKelas(e: any){
+        console.log(e.target.value);
+        this.selectKelas = e.target.value;
+    }
+    
+    selectedFile: File| any= null;
+
+    onFileSelected(event:any){
+       this.selectedFile= <File>event.target.files[0];
+    }
+
     editForm = this.fb.group({
         id:[''],
         id_kelas:['', Validators.required],
@@ -59,6 +87,15 @@ export class DialogUpdateMeetingComponent implements OnInit {
   }
 
   updatePertemuan(){
+    console.log(this.editForm.value);
+    const form = this.editForm.value;
+    form.upload_image = this.selectedFile;
+
+    const data = new FormData()
+    for (let key in form) {
+        data.append(key, form[key])
+    }
+
     this.pertemuanService.update(this.datacross.id,this.editForm.value).subscribe( ( result ) => {
       Swal.fire({
         icon: 'success',
@@ -66,6 +103,20 @@ export class DialogUpdateMeetingComponent implements OnInit {
         showConfirmButton: false,
         timer: 2000
       })
+    })
+  }
+
+  listPengajar(){
+    this.userService.pengajar().then(val => {
+        this.daftarPengajar = val
+        console.log(val);
+    })
+  }
+
+  listKelas(){
+    this.kelasService.getAll().then(val => {
+        this.daftarKelas = val
+        console.log(val);
     })
   }
 

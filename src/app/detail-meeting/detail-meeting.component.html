@@ -1,12 +1,15 @@
 <div style="background-color: #4FC3F7; height: 55px; width:100%; padding: 0">
     <h1 style="margin-left: 40px;line-height: 50px; font-weight: 500;">Detail Pertemuan</h1>
 </div>
- 
+<div>
+    <h5 style="margin-left: 40px; font-weight: 500; margin-top: 20px;">Daftar Kelas > Daftar Pertemuan > {{y}}</h5>
+</div>
 <div *ngIf="Level == '1' || Level == '2'; else peserta">
-    <div class="container" >
-        <div class="box box1" style="margin-left: 20px;">
-            <div class="card-meeting" style="height: 250px; " >
-                <div class="head" style="border-radius: 20px; line-height: 10px;" >PERTEMUAN</div>
+    <div class="container" style="margin-top: -15px;">
+        <div class="box box1" style="margin-left: 20px; ">
+            <div class="card-meeting" style="height: 250px; ">
+                <div >
+                    <div class="head" style="border-radius: 20px; line-height: 10px;" >PERTEMUAN: </div>
                     <div class="chat" style="margin-top: -5px;">
                         <div class="subhead" style="width: 120px; height: 15px;">
                             <p style=" font-size: 15px; margin-top: -10px; margin-left: 4%; margin-bottom: 15px;">MATERI</p>
@@ -40,6 +43,7 @@
                         </table>
                     </div>
                 </div>
+                </div>
                 <div class="card-meeting" style="height: 280px;" >
                     <div class="chat" style="margin-top: -20px;">
                         <div class="subhead" style="width: 120px; height: 15px;">
@@ -65,12 +69,9 @@
                                 <td style="text-align: center;">{{i+1}}</td>
                                 <td>{{tugas.judul}}</td>
                                 <td style="text-align: center;">{{tugas.dokumen}}</td>
-                                <td style="text-align: center;">{{tugas.tanggal_selesai}}</td>
+                                <td style="text-align: center;">{{tugas.tanggal_selesai.split("-").reverse().join("-")}}</td>
                                 <td style="text-align: center;">
                                 <div class="chat">
-                                    <!--<button mat-raised-button matTooltip="Upload Tugas Peserta" style="margin-left: 10px;" >
-                                    <i class="fa fa-upload" aria-hidden="true"></i>
-                                    </button>-->
                                     <button mat-raised-button matTooltip="Edit Tugas" style="margin-left: 10px;" (click)="updateTugas(tugas)" >
                                     <i class="fa fa-edit" aria-hidden="true"></i>
                                     </button>
@@ -85,36 +86,34 @@
                 </div>
             </div>
         <div class="box box2" style="margin-right:20px;">
-        <div class="card-meeting" >
-            <div class="head" style="line-height: 10px;" >CATATAN PERTEMUAN</div>
-            <div class="body">
-                <button mat-raised-button class="btn-add" matTooltip="Tambah catatan" (click)="addPosting()">
-                <i class="fa fa-plus-circle" aria-hidden="true" style="font-size: large;"></i>
-                </button>
-                <div *ngFor="let posting of postingList">
-                    <button mat-raised-button class="btn-add" matTooltip="Ubah catatan" (click)="updatePosting(posting)">
-                        <i class="fa fa-edit" aria-hidden="true" style="font-size: large;"></i>
+            <div class="card-meeting" >
+                <div class="head" style="line-height: 10px;" >CATATAN PERTEMUAN</div>
+                <div class="body">
+                    <button mat-raised-button class="btn-add" matTooltip="Tambah catatan" (click)="addPosting()">
+                    <i class="fa fa-plus-circle" aria-hidden="true" style="font-size: large;"></i>
                     </button>
-                    <button mat-raised-button class="btn-add" matTooltip="Hapus catatan" (click)="updatePosting(posting)" style="margin-left: 55%;"
-                    class="{hide:isActive}">
-                        <i class="fa fa-trash" aria-hidden="true" style="font-size: large;"></i>
-                    </button> 
-                    <div style="font-size: 12px; margin-bottom: 10px;">
-                        {{posting.catatan}}
-                        <br>
-                        <div class="hr" style="margin-top:15px;margin-bottom: 10px;"></div>
-                        <p style="font-weight: bold;">Masukkan Pengajar: </p>
-                        <p>{{posting.komentar}}</p>
-                    </div >
-                </div> 
+                    <!--<div class="chat">
+                        <button mat-raised-button class="btn-add" matTooltip="Ubah catatan" (click)="updatePosting(posting)">
+                            <i class="fa fa-edit" aria-hidden="true" style="font-size: large;"></i>
+                        </button>
+                        <button mat-raised-button class="btn-add" matTooltip="Hapus catatan" style="margin-left: 200%;">
+                            <i class="fa fa-trash" aria-hidden="true" style="font-size: large;"></i>
+                        </button>
+                    </div> -->
+                        <div style="font-size: 12px; margin-bottom: 10px; background-color: bisque;" *ngFor="let posting of postingList">
+                            {{posting.catatan}}
+                            <br>
+                            <div class="hr" style="margin-top:10px;margin-bottom: 15px;"></div>
+                        </div >
+                        
+                </div>
             </div>
-        </div>
         </div>
     </div>
 </div>
 <ng-template #peserta>
     <div class="container">
-        <div class="box box1" style="margin-left: 20px;">
+        <div class="box box1" style="margin-left: 20px; margin-top: -15px;">
             <div class="card-meeting" style="height: 250px; " *ngFor="let materi of materiList; let i = index">
                 <div class="head" style="border-radius: 20px; line-height: 10px;" >PERTEMUAN: {{materi.nama_pertemuan}}</div>
                     <div class="chat" style="margin-top: -5px;">
@@ -129,22 +128,11 @@
                                 <th style="text-align: center; width: 50px;">No</th>
                                 <th style="text-align: center; width: 250px;">Judul</th>
                                 <th style="text-align: center; width: 70px;">Dokumen</th>
-                                <th style="text-align: center;width: 80px;">Aktifitas</th>
                             </tr>
                             <tr >
                                 <td style="text-align: center;">{{i + 1}}</td>
                                 <td>{{materi.judul}}</td>
                                 <td style="text-align: center; height: 20px;">{{materi.dokumen}}</td>
-                                <td>
-                                <div class="chat" style="margin-left:6%">
-                                    <button mat-raised-button matTooltip="Edit materi" (click)="updateMateri(materi)">
-                                    <i class="fa fa-edit" aria-hidden="true"></i>
-                                    </button>
-                                    <button mat-raised-button matTooltip="Hapus materi" style="margin-left: 10px;" (click)="deleteMateri(materi.id)">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
-                                    </button>
-                                </div>
-                                </td>
                             </tr>
                         </table>
                     </div>
@@ -173,17 +161,11 @@
                                 <td style="text-align: center;">{{i+1}}</td>
                                 <td>{{tugas.judul}}</td>
                                 <td style="text-align: center;">{{tugas.dokumen}}</td>
-                                <td style="text-align: center;">{{tugas.tanggal_selesai}}</td>
+                                <td style="text-align: center;">{{tugas.tanggal_selesai.split("-").reverse().join("-")}}</td>
                                 <td style="text-align: center;">
                                 <div class="chat">
-                                    <!--<button mat-raised-button matTooltip="Upload Tugas Peserta" style="margin-left: 10px;" >
+                                    <button mat-raised-button matTooltip="Upload Tugas Peserta" style="margin-left: 10px;" >
                                     <i class="fa fa-upload" aria-hidden="true"></i>
-                                    </button>-->
-                                    <button mat-raised-button matTooltip="Edit Tugas" style="margin-left: 10px;" (click)="updateTugas(tugas)" >
-                                    <i class="fa fa-edit" aria-hidden="true"></i>
-                                    </button>
-                                    <button mat-raised-button matTooltip="Hapus Tugas" style="margin-left: 10px;" (click)="deleteTugas(tugas.id)">
-                                    <i class="fa fa-trash" aria-hidden="true"></i>
                                     </button>
                                 </div>
                                 </td>
@@ -192,31 +174,26 @@
                     </div>
                 </div>
             </div>
-        <div class="box box2" style="margin-right:20px;">
-          <div class="card-meeting">
-            <div class="head" style="line-height: 10px;" >CATATAN PERTEMUAN</div>
-            <div class="body">
-                <button mat-raised-button class="btn-add" matTooltip="Tambah catatan" (click)="addPosting()">
-                  <i class="fa fa-plus-circle" aria-hidden="true" style="font-size: large;"></i>
-                </button>
-                <div *ngFor="let posting of postingList">
-                    <button mat-raised-button class="btn-add" matTooltip="Ubah catatan" (click)="updatePosting(posting)">
-                        <i class="fa fa-edit" aria-hidden="true" style="font-size: large;"></i>
-                    </button>
-                    <button mat-raised-button class="btn-add" matTooltip="Hapus catatan" (click)="updatePosting(posting)" style="margin-left: 55%;"
-                    class="{hide:isActive}">
-                        <i class="fa fa-trash" aria-hidden="true" style="font-size: large;"></i>
-                    </button> 
-                    <div style="font-size: 12px; margin-bottom: 10px;">
-                        {{posting.catatan}}
-                        <br>
-                        <div class="hr" style="margin-top:15px;margin-bottom: 10px;"></div>
-                        <p style="font-weight: bold;">Masukkan Pengajar: </p>
-                        <p>{{posting.komentar}}</p>
-                    </div >
-                </div> 
+            <div class="box box2" style="margin-right:20px; margin-top: -15px;">
+                <div class="card-meeting" *ngFor="let posting of postingList">
+                    <div class="head" style="line-height: 10px;" >CATATAN PERTEMUAN</div>
+                    <div class="body">
+                        <button mat-raised-button class="btn-add" matTooltip="Tambah catatan" (click)="addPosting()">
+                        <i class="fa fa-plus-circle" aria-hidden="true" style="font-size: large;"></i>
+                        </button>
+                        <div class="chat">
+                            <button mat-raised-button class="btn-add" matTooltip="Ubah catatan" (click)="updatePosting(posting)">
+                                <i class="fa fa-edit" aria-hidden="true" style="font-size: large;"></i>
+                            </button>
+                            <button mat-raised-button class="btn-add" matTooltip="Hapus catatan" style="margin-left: 200%;">
+                                <i class="fa fa-trash" aria-hidden="true" style="font-size: large;"></i>
+                            </button>
+                        </div> 
+                        <div style="font-size: 12px; margin-bottom: 10px;" *ngFor="let posting of postingList">
+                            {{posting.catatan}}
+                        </div >
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
     </div>
 </ng-template>

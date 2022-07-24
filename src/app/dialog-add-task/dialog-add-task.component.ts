@@ -35,6 +35,12 @@ export class DialogAddTaskComponent implements OnInit {
         })
     }
 
+    selectedFile: File| any= null;
+
+  onFileSelected(event:any){
+   this.selectedFile= <File>event.target.files[0];
+  }
+
   ngOnInit(): void {
   }
 
@@ -42,12 +48,21 @@ export class DialogAddTaskComponent implements OnInit {
     id: [''],
     id_pertemuan: ['', Validators.required], 
     judul: ['', Validators.required],
+    //tanggal_mulai: ['', Validators.required],
     tanggal_selesai: ['', Validators.required],
-    dokumen: ['', Validators.required],
-    nilai: [''],
+    dokumen: ['', Validators.required]
   })
 
   create(){
+    console.log(this.tugasForm.value);
+    const form = this.tugasForm.value;
+    form.upload_image = this.selectedFile;
+
+    const data = new FormData()
+    for (let key in form) {
+        data.append(key, form[key])
+    }
+
     this.tugasService.insert(this.tugasForm.value).subscribe(val => {
       Swal.fire({
         icon: 'success',

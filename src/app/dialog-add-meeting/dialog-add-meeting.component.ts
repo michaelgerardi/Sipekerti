@@ -25,8 +25,6 @@ export class DialogAddMeetingComponent implements OnInit {
 
   daftarPengajar: any ;
   daftarKelas: any;
-//  pengajarModel = "";
-//  kelasModel = "";
   selectPengajar :any;
   selectKelas: any
 
@@ -39,10 +37,14 @@ export class DialogAddMeetingComponent implements OnInit {
     console.log(e.target.value);
     this.selectKelas = e.target.value;
   }
+
+  selectedFile: File| any= null;
+
+  onFileSelected(event:any){
+   this.selectedFile= <File>event.target.files[0];
+  }
+
   ngOnInit(): void {
-    //this.pengajarList;
-    //this.listKelas(),
-    //this.listPengajar()
   }
 
   pertemuanForm = this.fb.group({
@@ -59,15 +61,21 @@ export class DialogAddMeetingComponent implements OnInit {
     metode_penilaian:['', Validators.required],
     metode_pembelajaran:['', Validators.required],
     pustaka:['', Validators.required],
-    bobot:['', Validators.required],
-    //upload_image:['', Validators.required],
+    bobot:['', Validators.required]
+    //upload_image:['', Validators.required]
   })
 
   createPertemuan(){
     console.log(this.pertemuanForm.value);
-    this.pertemuanService.insert(this.pertemuanForm.value).subscribe(val=>{
-       
-        
+    const form = this.pertemuanForm.value;
+    form.upload_image = this.selectedFile;
+
+    const data = new FormData()
+    for (let key in form) {
+        data.append(key, form[key])
+    }
+
+    this.pertemuanService.insert(data).subscribe(val=>{ 
       Swal.fire({
         icon: 'success',
         title: 'Data tersimpan!',
@@ -90,42 +98,4 @@ export class DialogAddMeetingComponent implements OnInit {
         console.log(val);
     })
   }
-
-//  fileData: File = null;
-//  fileProgress(fileInput: any) {
-//    this.fileData = <File>fileInput.target.files[0];
-//}
- 
-//onSubmit() {
-//    const formData = new FormData();
-//    formData.append('file', this.fileData);
-//    this.http.post('url/to/your/api', formData)
-//      .subscribe(res => {
-//        console.log(res);
-//        alert('SUCCESS !!');
-//      })
-//}
-//  selectedFile: File = null;
-
-//  onFileSelected(event: any) {
-//    //console.log(event)
-//    this.selectedFile = <File>event.target.files[0]
-//  }
-
-//  onUpload(){
-//    const fd = new FormData();
-//    fd.append('image', this.selectedFile, this.selectedFile.name);
-//    this.http.post( , fd, {
-//        reportProgress: true,
-//        observe: 'events'
-//    }).subscribe(event => {
-//        if (event.type === HttpEventType.UploadProgress){
-//            console.log('Upload Progress: '+ Math.round(event.loaded / event.total*100) + '%');
-            
-//        } else if(event.type === HttpEventType.Response){
-//            console.log(event);
-//        }
-        
-//    })
-//  }
 }

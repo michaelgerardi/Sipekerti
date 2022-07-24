@@ -1,10 +1,10 @@
 <form [formGroup]="pertemuanForm" (ngSubmit)="createPertemuan()">
     <h2 mat-dialog-title style="text-align: center;">Form Pertemuan Baru</h2>
     <mat-divider style="margin-bottom: 20px;"></mat-divider>
-    <mat-dialog-content class="mat-typography" style="width: 510px;">     
+    <mat-dialog-content class="mat-typography" style="width: 550px;">     
         <mat-label>Kelas</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 172px; width: 230px;">
-            <mat-select class="custom-select" formControlName="id_kelas" required (change)="ChangeKelas($event)">
+        <mat-form-field appearance="outline" style="margin-left: 172px; width: 270px;">
+            <mat-select class="custom-select"  formControlName="id_kelas" required (change)="ChangeKelas($event)">
                 <mat-option *ngFor="let kelas of daftarKelas" [value]="kelas.id">
                 {{kelas.nama_kelas}}
                 </mat-option>
@@ -12,7 +12,7 @@
         </mat-form-field>
         <br>
         <mat-label>Pilih Pengajar</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 120px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 120px; width: 270px;">
             <mat-select class="custom-select" formControlName="id_pengajar" required (change)="ChangePengajar($event)">
                 <mat-option *ngFor="let pengajar of daftarPengajar" [value]="pengajar.id">
                 {{pengajar.nama}}
@@ -21,7 +21,7 @@
         </mat-form-field>
         <br>
         <mat-label>Nama Pertemuan</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 97px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 97px; width: 270px;">
             <textarea matInput type="text" formControlName="nama_pertemuan" style="height: 50px;"></textarea>
         </mat-form-field>
         <br>
@@ -33,42 +33,42 @@
         </mat-form-field>
         <br>
         <mat-label>Deskripsi</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 150px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 150px; width: 270px;">
             <textarea matInput type="text" formControlName="deskripsi_pertemuan" style="height: 100px; "></textarea>
         </mat-form-field>
         <br>
         <mat-label>Tempat</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 160px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 160px; width: 270px;">
             <input matInput type="text" formControlName="tempat">
         </mat-form-field>
         <br>
         <mat-label>Sub Capai</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 145px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 145px; width: 270px;">
             <textarea matInput type="text" formControlName="sub_cp" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Materi</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 168px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 168px; width: 270px;">
             <textarea matInput type="text" formControlName="materi" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Indikator</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 152px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 152px; width: 270px;">
             <textarea matInput type="text" formControlName="indikator" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Metode Penilaian</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 100px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 100px; width: 270px;">
             <textarea matInput type="text" formControlName="metode_penilaian" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Metode Pembelajaran</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 72px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 72px; width: 270px;">
             <textarea matInput type="text" formControlName="metode_pembelajaran" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
         <mat-label>Pustaka</mat-label>
-        <mat-form-field appearance="outline" style="margin-left: 158px; width: 230px;">
+        <mat-form-field appearance="outline" style="margin-left: 158px; width: 270px;">
             <textarea matInput type="text" formControlName="pustaka" style="height: 100px;"></textarea>
         </mat-form-field>
         <br>
@@ -77,43 +77,11 @@
             <input matInput type="text" formControlName="bobot">
         </mat-form-field>
         <br>
-        <!--<div class="col-md-6 offset-md-3">
-            <div>
-                <input type="file" #selectFile value="select" (change)="onFileSelected($event)">
-            </div>
-            <div class="mt-5">
-                <div class="row">
-                    <mat-grid-list cols="4" rowHeight="1:1">
-                        <mat-grid-tile>
-                            <div style="position: relative;">
-                                <span class="btn-remove-image" (click)="removeImage()"></span>
-                                <img [src=""] alt="">
-                            </div>
-                        </mat-grid-tile>
-
-                    </mat-grid-list>
-                </div>
-            </div>
-        </div>-->
-        <!--<br>
-        <div class="col-md-6 offset-md-3">
-            <h3>Choose File</h3>
-            <form (ngSubmit)="onSubmit()">
-                <div class="form-group">
-                    <input type="file" name="image"  />
-                </div>
-                <div class="form-group">
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>-->
-        <!--<mat-label>Gambar</mat-label>
-        <input type="file" id="image-input" accept="image/jpeg, image/png, image/jpg" (change)="onFileSelected($event)">
-        <button type="button" (click)="onUpload()"></button>
-        <br>-->
+        <mat-label>Gambar</mat-label>
+        <input type="file" class="form-control" (change)="onFileSelected($event)" style="margin-left: 160px;">
     </mat-dialog-content>
     <mat-dialog-actions align="center">
         <button mat-button mat-dialog-close>Batal</button>
-        <button mat-button [mat-dialog-close] [disabled]="!pertemuanForm.valid" type="submit">Simpan</button>
+        <button mat-button [mat-dialog-close] [disabled]="!pertemuanForm.valid || !selectedFile" type="submit">Simpan</button>
     </mat-dialog-actions>
 </form>

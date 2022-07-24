@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { DialogProfileComponent } from '../dialog-profile/dialog-profile.component';
 import { CookieService } from 'ngx-cookie-service';
+import { AuthService } from '../_services/auth.service';
 
 @Component({
   selector: 'app-body',
@@ -17,10 +18,17 @@ export class BodyComponent {
   constructor(
     public dialog: MatDialog,
     private router: Router,
-    private cookieService: CookieService
+    private cookieService: CookieService,
+    private authService: AuthService
   ) { }
   
-  username  =  this.cookieService.get( 'username' );
+  ngOnInit(){
+    this.authService.username.subscribe(data =>{
+     this.username = data   
+    })
+  }
+
+  username:string | null  =  null;
   getBodyClass(): string{
     let styleClass = '';
     if(this.collapsed && this.screenWidth > 768){
@@ -32,7 +40,8 @@ export class BodyComponent {
   }
 
   public logout(){
-    
+    this.authService.username.next(null);
+
     this.cookieService.delete('Level');
     this.cookieService.delete('username');
     this.cookieService.delete('nama');
